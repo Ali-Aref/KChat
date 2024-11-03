@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1730350387544,
+      "tag": "0000_melted_ultimatum",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1730350546113,
+      "tag": "0001_clean_magma",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1730354556610,
+      "tag": "0002_daily_warstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1730354591720,
+      "tag": "0003_tense_lightspeed",
+      "breakpoints": true
+    }
+  ]
+}
