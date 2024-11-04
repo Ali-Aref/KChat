@@ -7,9 +7,8 @@ export default async function Home() {
 	console.log("todo: ", todos)
 
   return (
-    <div className="flex bg-black flex-col flex-1 gap-3 h-screen items-center justify-center">
-			<h1 className="text-white">Hola</h1>
-			<Button className="bg-white text-black">Add</Button>
+    <div className="flex flex-col flex-1 gap-3 h-screen items-center justify-center">
+			<Button className="">Add</Button>
     </div>
   );
 }
