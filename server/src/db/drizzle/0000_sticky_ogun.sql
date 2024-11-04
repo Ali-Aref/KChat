@@ -17,4 +17,22 @@ CREATE TABLE `todoProjects` (
 	CONSTRAINT `todoProjects_id` PRIMARY KEY(`id`)
 );
 --> statement-breakpoint
-ALTER TABLE `todos` ADD CONSTRAINT `todos_projectId_todoProjects_id_fk` FOREIGN KEY (`projectId`) REFERENCES `todoProjects`(`id`) ON DELETE no action ON UPDATE no action;
+CREATE TABLE `todoTags` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`name` varchar(128) NOT NULL,
+	CONSTRAINT `todoTags_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `user` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`username` varchar(32),
+	`email` varchar(128),
+	`firstName` varchar(128),
+	`lastName` varchar(128),
+	`password` varchar(255),
+	`createdAt` timestamp DEFAULT (now()),
+	`updatedAt` timestamp DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `user_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+ALTER TABLE `todos` ADD CONSTRAINT `todos_projectId_todoProjects_id_fk` FOREIGN KEY (`projectId`) REFERENCES `todoProjects`(`id`) ON DELETE cascade ON UPDATE no action;
