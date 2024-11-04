@@ -11,12 +11,18 @@
     "db:migrate": "node src/db/migrate.mjs "
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.35.3",
+    "lucide-react": "^0.454.0",
     "mysql2": "^3.11.3",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.1.0",
