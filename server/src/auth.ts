@@ -24,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             "--------- ivalid login data: ",
             JSON.stringify(valid.error.issues),
           );
+					//throw new Error("Invalid login data");
           return null;
         }
         // search if the username is available
@@ -32,7 +33,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .from(user)
           .where(eq(user.username, valid.data.username));
         if (userExists.length <= 0) {
-          console.log("--------- username not available");
+          console.log("--------- user not available in db");
+					//throw new Error("user not available in db");
           return null;
         }
         // authenticate user
@@ -41,15 +43,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           userExists[0].password,
         );
         if (!passwordMatch) {
-          console.log("--------- password not match");
+          console.log("--------- password is incorrect");
+					//throw new Error("password not match");
           return null;
         }
-        return {
-					id: "777",
-					firstName: "cris",
-					lastName: "ronaldo",
-					message: "user could login"
-				};
+        return userExists[0];
       },
     }),
   ],

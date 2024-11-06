@@ -1,13 +1,12 @@
-import { db } from "@/db";
-import { sql } from "drizzle-orm";
 import { Button } from "@/components/ui/button";
+import { auth } from "@/auth";
 
 export default async function Home() {
-	const todos = await db.execute(sql`select * from todos`)
-	console.log("todo: ", todos)
+	const session = await auth()
 
   return (
     <div className="flex flex-col flex-1 gap-3 h-screen items-center justify-center">
+			<p>{JSON.stringify(session, null, 2)}</p>
 			<Button className="">Add</Button>
     </div>
   );

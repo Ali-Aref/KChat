@@ -1,10 +1,15 @@
-import React from 'react'
+import { db } from "@/db";
+import { todo } from "@/db/schema/todo";
+import { TodoForm } from "@/components/todo/form";
+import React from "react";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const todos = await db.select().from(todo);
+
   return (
-    <div className='h-screen flex flex-1 items-center justify-center'>
-			<h1> Dashboard Screen Here </h1>
-		</div>
-  )
+    <div className=" flex flex-1 flex-col items-center justify-center">
+      <h1 className="mb-5">Dashboard here</h1>
+			<TodoForm todos={todos} />
+    </div>
+  );
 }
-
