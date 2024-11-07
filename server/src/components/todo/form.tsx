@@ -64,14 +64,14 @@ export const TodoForm = ({ todos }: TodosFormProps) => {
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {opTodos.map((todo) => (
               <tr key={todo.id} className="*:pr-8">
-                <td>{todo.title}</td>
+                <td className="line-clamp-3">{todo.title}</td>
                 <td>{todo.status}</td>
                 <td>{todo.projectId}</td>
                 <td>{todo.priority}</td>
-                <td>{todo.description}</td>
+                <td className="line-clamp-3">{todo.description}</td>
                 <TodoFormActions id={todo.id} />
               </tr>
             ))}

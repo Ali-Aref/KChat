@@ -54,4 +54,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 	pages: {
 		signIn: "/login",
 	},
+	// callbacks to add custom data to session
+	callbacks: {
+		async jwt({ token, user }) {
+			if (user){
+				token.firstName = user.firstName
+				token.lastName = user.lastName
+			}
+			return token
+		},
+
+		async session({ session, token, user }){
+			console.log({ session, token, user })
+			if (token.sub && token.firstName && token.lastName){
+				session.user.id = token.sub
+				session.user.firstName = token.firstName
+				session.user.lastName = token.lastName
+			}
+			return session
+		},
+	},
 });
