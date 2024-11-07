@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.db.models.functions import Concat
+from django.db.models import F
+import datetime
 
 USER = get_user_model()
 
@@ -24,15 +25,6 @@ class Profile(models.Model):
 
     # Define Profile fields here
     user = models.OneToOneField(USER, on_delete=models.CASCADE)
-    # full_name = models.GeneratedField(
-    #     expression=Concat(
-    #         models.Value("user__first_name"),
-    #         models.Value(" "),
-    #         models.Value("user__last_name"),
-    #     ),
-    #     output_field=models.CharField(max_length=255),
-    #     db_persist=True
-    # )
     gender = models.CharField(
         max_length=6, choices=GenderChoices.choices, default=GenderChoices.MALE
     )
@@ -42,6 +34,11 @@ class Profile(models.Model):
         upload_to=cover_photo_path, blank=True, null=True
     )
     birth_date = models.DateField(blank=True, null=True)
+    age = models.GeneratedField(
+        expression=datetime.datetime.now() - F("birth_date"),
+        output_field=models.PositiveSmallIntegerField(),
+        db_persist=True
+    )
 
     class Meta:
         ordering = ["-pk"]

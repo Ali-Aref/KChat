@@ -5,11 +5,11 @@ from .models import Profile
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = "gender", "birth_date", "age"
-    search_fields = "user__first_name", "user__last_name"
-    list_filter = "gender", "user__is_active"
+    list_display = "full_name", "gender", "birth_date", "age"
+    search_fields = "user__first_name", "user__last_name", "user__username"
+    list_filter = "user__is_active", "gender", "age"
 
-    def age(self, obj):
-        return obj.birth_date if not obj.birth_date else "21"
-
-    age.short_description = "Age"
+    def full_name(self, obj):
+        return (
+            f"{obj.user.first_name} {obj.user.last_name}" or obj.user.username
+        )
