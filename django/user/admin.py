@@ -5,9 +5,9 @@ from .models import Profile
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = "full_name", "gender", "birth_date", "age"
+    list_display = "full_name", "gender", "birth_date",
     search_fields = "user__first_name", "user__last_name", "user__username"
-    list_filter = "user__is_active", "gender", "age"
+    list_filter = "user__is_active", "gender",
 
     def full_name(self, obj):
         return (

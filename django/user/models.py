@@ -34,11 +34,11 @@ class Profile(models.Model):
         upload_to=cover_photo_path, blank=True, null=True
     )
     birth_date = models.DateField(blank=True, null=True)
-    age = models.GeneratedField(
-        expression=datetime.datetime.now() - F("birth_date"),
-        output_field=models.PositiveSmallIntegerField(),
-        db_persist=True
-    )
+    # age = models.GeneratedField(
+    #     expression=datetime.datetime.now() - F("birth_date"),
+    #     output_field=models.PositiveSmallIntegerField(),
+    #     db_persist=True
+    # )
 
     class Meta:
         ordering = ["-pk"]
