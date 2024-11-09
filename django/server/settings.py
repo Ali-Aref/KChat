@@ -40,20 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # allauth
     'django.contrib.sites',
+    # allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration',
     # system
     'corsheaders',
     'django_cleanup.apps.CleanupConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'dj_rest_auth.registration',
     # apps
     'user',
+    'chatroom',
 ]
 SITE_ID = 1
 
@@ -74,7 +75,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -171,7 +172,27 @@ ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # =False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # =False
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # =False
 ACCOUNT_LOGOUT_ON_GET = True  # =False
+ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True  # =False
+ACCOUNT_EMAIL_VERIFICATION_BY_CODE_MAX_ATTEMPTS = 3  # =3
 # REST_AUTH_REGISTER_SERIALIZERS = {
 #     "REGISTER_SERIALIZER": "user.api.serializers.RegisterUserSerializer",
 # }
+ACCOUNT_ADAPTER = "lib.custom_auth_account_adapter.CustomAccountAdapter"
 
+# mailing settings
+# (on testing)
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = "ali412514n@gmail.com"
+# EMAIL_HOST_PASSWORD = "yqrjzxtnjwqmcnxx"
+# (on server)
+DEFAULT_FROM_EMAIL = (
+    "No Reply <ali@amucarcare.com>"  # requires for all auth mailing
+)
+EMAIL_HOST = "smtp.hostinger.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "ali@amucarcare.com"
+EMAIL_HOST_PASSWORD = "SKm=3n@3N"
+EMAIL_USE_SSL = True
