@@ -172,7 +172,7 @@ ACCOUNT_EMAIL_VERIFICATION = (
     "mandatory"  # "optional" or "None" unverified email login allow
 )
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # allauth login with both
-ACCOUNT_EMAIL_SUBJECT_PREFIX = "[site] "
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "kchat.com | "
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # =False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # =False
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # =False
