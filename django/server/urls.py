@@ -23,8 +23,8 @@ urlpatterns = [
     # for dj-rest-auth password reset
     re_path(r'^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,32})/$',
             TemplateView.as_view(template_name="password_reset_confirm.html"),
-            name='password_reset_confirm'), path('admin/', admin.site.urls),
-
+            name='password_reset_confirm'),
+    path('admin/', admin.site.urls),
     path('dj-rest-auth/password-reset/',
          TemplateView.as_view(template_name="password_reset.html"),
          name='password-reset'),

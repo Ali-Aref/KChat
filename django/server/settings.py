@@ -182,6 +182,9 @@ ACCOUNT_EMAIL_VERIFICATION_BY_CODE_MAX_ATTEMPTS = 3  # =3
 # REST_AUTH_REGISTER_SERIALIZERS = {
 #     "REGISTER_SERIALIZER": "user.api.serializers.RegisterUserSerializer",
 # }
+ACCOUNT_PASSWORD_RESET_TOKEN_GENERATOR = (
+    "lib.custom_auth_account_adapter.CustomEmailAwarePasswordResetTokenGenerator"
+)
 ACCOUNT_ADAPTER = "lib.custom_auth_account_adapter.CustomAccountAdapter"
 
 # mailing settings
