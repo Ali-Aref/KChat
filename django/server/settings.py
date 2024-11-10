@@ -151,6 +151,10 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
     ]
 }
 
@@ -168,6 +172,7 @@ ACCOUNT_EMAIL_VERIFICATION = (
     "mandatory"  # "optional" or "None" unverified email login allow
 )
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # allauth login with both
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "[site] "
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # =False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # =False
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # =False
