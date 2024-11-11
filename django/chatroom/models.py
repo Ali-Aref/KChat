@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import USER
 
 
 # media path
@@ -24,9 +25,40 @@ class Chatroom(models.Model):
         verbose_name_plural = "Chatrooms"
 
     def __str__(self):
-        return super().__str__()
+        return self.name
 
     def save(self, *args, **kwargs):
         return super().save(*args, **kwargs)
 
     # Define Chatroom properties here
+
+
+class ChatroomMessages(models.Model):
+    # Define ChatroomMessages fields here
+    chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE)
+    message = models.TextField()
+    sender = models.ForeignKey(USER, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-pk"]
+        verbose_name = "Chatroom Messages"
+        verbose_name_plural = "Chatroom Messages"
+
+    def __str__(self):
+        return self.message
+
+
+class ChatroomPoints(models.Model):
+    # Define ChatroomPoints fields here
+    chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE)
+    user = models.ForeignKey(USER, on_delete=models.CASCADE)
+    points = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ["-pk"]
+        verbose_name = "Chatroom Points"
+        verbose_name_plural = "Chatroom Points"
+
+    def __str__(self):
+        return f"{self.user.username} - {self.points}"
