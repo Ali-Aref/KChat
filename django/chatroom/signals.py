@@ -9,10 +9,14 @@ from .models import ChatroomPoints, ChatroomMessages
 def update_chatroom_points(sender, instance, created, **kwargs):
     if created:
         with transaction.atomic():
-            chatroom_points, _ = ChatroomPoints.objects.get_or_create(
+            # chatroom_points, _ = ChatroomPoints.objects.get_or_create(
+            #     chatroom=instance.chatroom,
+            #     user=instance.sender,
+            #     defaults={"points": 0}
+            # )
+            # chatroom_points.points = F("points") + 1
+            # chatroom_points.save()
+            ChatroomPoints.objects.create(
                 chatroom=instance.chatroom,
                 user=instance.sender,
-                defaults={"points": 0}
             )
-            chatroom_points.points = F("points") + 1
-            chatroom_points.save()

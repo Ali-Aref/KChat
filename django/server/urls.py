@@ -40,4 +40,6 @@ urlpatterns = [
     #     VerifyEmailView.as_view(),
     #     name='account_email_verification_sent'
     # ),
+    # custom rest urls
+    path("api/chatrooms/", include("chatroom.api.urls", namespace="chatroom")),
 ]

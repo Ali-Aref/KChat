@@ -24,7 +24,9 @@ class Profile(models.Model):
         FEMALE = "Female", "Female"
 
     # Define Profile fields here
-    user = models.OneToOneField(USER, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        USER, on_delete=models.CASCADE, related_name="profile"
+    )
     gender = models.CharField(
         max_length=6, choices=GenderChoices.choices, default=GenderChoices.MALE
     )
@@ -58,3 +60,6 @@ class Profile(models.Model):
             Profile.objects.create(user=instance)
 
     # Define Profile properties here
+    @property
+    def full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}".strip()

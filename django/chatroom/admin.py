@@ -20,9 +20,9 @@ class ChatroomMessagesAdmin(admin.ModelAdmin):
 
 @admin.register(ChatroomPoints)
 class ChatroomPointsAdmin(admin.ModelAdmin):
-    list_display = "username", "points", "chatroom_name",
-    search_fields = "user__username",
-    list_filter = "chatroom__name",
+    list_display = "username", "point", "chatroom_name", "earned_at",
+    search_fields = "user__username", "user__first_name", "user__last_name",
+    list_filter = "earned_at", "chatroom__name",
 
     def chatroom_name(self, obj):
         return obj.chatroom.name

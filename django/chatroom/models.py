@@ -1,5 +1,9 @@
 from django.db import models
+from django.db.models import Q
 from user.models import USER
+from datetime import datetime, timedelta
+
+NOW = datetime.now()
 
 
 # media path
@@ -53,7 +57,8 @@ class ChatroomPoints(models.Model):
     # Define ChatroomPoints fields here
     chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE)
     user = models.ForeignKey(USER, on_delete=models.CASCADE)
-    points = models.IntegerField(default=0)
+    point = models.IntegerField(default=1)
+    earned_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-pk"]
@@ -61,4 +66,4 @@ class ChatroomPoints(models.Model):
         verbose_name_plural = "Chatroom Points"
 
     def __str__(self):
-        return f"{self.user.username} - {self.points}"
+        return str(self.point)
