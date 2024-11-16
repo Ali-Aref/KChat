@@ -1,7 +1,8 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from django.db.models import Q
 from user.models import USER
-from datetime import datetime, timedelta
 
 NOW = datetime.now()
 
@@ -22,6 +23,7 @@ class Chatroom(models.Model):
     icon = models.ImageField(upload_to=chatroom_icon_path)
     cover_photo = models.ImageField(upload_to=chatroom_cover_photo_path)
     description = models.TextField()
+    users = models.ManyToManyField(USER)
 
     class Meta:
         ordering = ["-pk"]
@@ -55,8 +57,12 @@ class ChatroomMessages(models.Model):
 
 class ChatroomPoints(models.Model):
     # Define ChatroomPoints fields here
-    chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE)
-    user = models.ForeignKey(USER, on_delete=models.CASCADE)
+    chatroom = models.ForeignKey(
+        Chatroom, on_delete=models.CASCADE, related_name="points"
+    )
+    user = models.ForeignKey(
+        USER, on_delete=models.CASCADE, related_name="points"
+    )
     point = models.IntegerField(default=1)
     earned_at = models.DateTimeField(auto_now_add=True)
 

@@ -1,9 +1,7 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.db.models import F
-import datetime
 
 USER = get_user_model()
 
@@ -28,10 +26,14 @@ class Profile(models.Model):
         USER, on_delete=models.CASCADE, related_name="profile"
     )
     gender = models.CharField(
-        max_length=6, choices=GenderChoices.choices, default=GenderChoices.MALE
+        max_length=6,
+        choices=GenderChoices.choices,
+        default=GenderChoices.MALE,
     )
     bio = models.TextField(blank=True, null=True)
-    avatar = models.ImageField(upload_to=avatar_path, blank=True, null=True)
+    avatar = models.ImageField(
+        upload_to=avatar_path, blank=True, null=True
+    )
     cover_photo = models.ImageField(
         upload_to=cover_photo_path, blank=True, null=True
     )
@@ -62,4 +64,7 @@ class Profile(models.Model):
     # Define Profile properties here
     @property
     def full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}".strip()
+        return (
+            f"{self.user.first_name} {self.user.last_name}".strip()
+            or self.user.username
+        )
