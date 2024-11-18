@@ -9,10 +9,14 @@ from lib.utils import get_last_days_date
 
 
 class ChatroomListSerializer(serializers.ModelSerializer):
-    # TODO: show users count for each chatroom
+    available_users = serializers.SerializerMethodField()
+
+    def get_available_users(self, obj):
+        return obj.users.count()
+
     class Meta:
         model = Chatroom
-        fields = "id", "name", "icon", "cover_photo"
+        fields = "id", "name", "icon", "cover_photo", "available_users"
 
 
 class ChatroomDetailsSerializer(serializers.ModelSerializer):
@@ -48,7 +52,6 @@ class ChatroomDetailsSerializer(serializers.ModelSerializer):
 
 
 class ChatroomMessagesListSerializer(serializers.ModelSerializer):
-    # TODO: pagination for messages
     full_name = serializers.StringRelatedField(
         source="sender.profile.full_name"
     )

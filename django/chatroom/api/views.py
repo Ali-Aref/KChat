@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.db.models import Sum
 from django.utils import timezone
 from datetime import timedelta
+from lib.utils import customPagination
 from . import serializers
 
 
@@ -19,6 +20,7 @@ class ChatroomModelViewSet(viewsets.ModelViewSet):
 
 
 class ChatroomMessagesModelViewSet(viewsets.ModelViewSet):
+    pagination_class = customPagination()
     map_serializer_class = {
         "list": serializers.ChatroomMessagesListSerializer,
         "create": serializers.ChatroomMessagesCreateSerializer,
