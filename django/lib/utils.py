@@ -17,3 +17,19 @@ def customPagination(page_size: int = PAGE_SIZE):
     return type(
         "SubClass", (PageNumberPagination,), {"page_size": page_size}
     )
+
+
+def dynamic_serializer_fields(self, *args, **kwargs):
+    """Dynamic Fields For Serializers"""
+
+    fields = kwargs.pop("fields", None)
+    exclude = kwargs.pop("exclude", None)
+    super(self.__class__, self).__init__(*args, **kwargs)
+    # setting fields dynamically
+    if fields:
+        for field_name in set(self.fields) - set(fields):
+            self.fields.pop(field_name)
+    if exclude:
+        for field_name in set(self.fields):
+            if field_name in set(exclude):
+                self.fields.pop(field_name)

@@ -16,7 +16,7 @@ class ChatroomModelViewSet(viewsets.ModelViewSet):
     }
 
     def get_serializer_class(self):
-        return self.map_serializer_class.get(self.action)
+       return self.map_serializer_class.get(self.action)
 
 
 class ChatroomMessagesModelViewSet(viewsets.ModelViewSet):

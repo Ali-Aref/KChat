@@ -42,4 +42,5 @@ urlpatterns = [
     # ),
     # custom rest urls
     path("api/chatrooms/", include("chatroom.api.urls", namespace="chatroom")),
+    path("api/", include("user.api.urls", namespace="chatroom")),
 ]
