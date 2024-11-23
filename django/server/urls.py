@@ -41,6 +41,7 @@ urlpatterns = [
     #     name='account_email_verification_sent'
     # ),
     # custom rest urls
-    path("api/chatrooms/", include("chatroom.api.urls", namespace="chatroom")),
-    path("api/", include("user.api.urls", namespace="chatroom")),
+    path("api/", include("chatroom.api.urls", namespace="chatroom")),
+    path("api/", include("user.api.urls", namespace="user")),
+    path("api/", include("friend.api.urls", namespace="friend")),
 ]

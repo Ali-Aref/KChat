@@ -13,33 +13,45 @@ class UserSerializer(serializers.ModelSerializer):
         exclude = ("password", "last_login")
 
 
-class UserUpdateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = USER
-        fields = "first_name", "last_name", "username", "email"
-
-
 class ProfileListSerializer(serializers.ModelSerializer):
-    user = UserSerializer(
-        fields=("username", "first_name", "last_name"),
-    )
-
     class Meta:
         model = Profile
-        fields = "id", "gender", "avatar", "user"
+        fields = ("gender", "avatar")
+
+    def to_representation(self, instance):
+        representation = {}
+        user = UserSerializer(
+            instance=instance.user,
+            fields=("id", "usernname", "first_name", "last_name"),
+        ).data
+        for key, value in user.items():
+            representation[key] = value
+        return representation | super().to_representation(instance)
 
 
 class ProfileDetailsSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-
     class Meta:
         model = Profile
-        fields = "id", "gender", "avatar", "user"
+        fields = ("id", "gender", "avatar", "bio", "blocked_users")
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        user = UserSerializer(instance=instance.user).data
+        for key, value in user.items():
+            representation[key] = value
+        return representation
 
 
 class ProfileUpdateSerializer(serializers.ModelSerializer):
     user = UserSerializer(
-        fields=("username", "first_name", "last_name", "email"),
+        fields=(
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "is_active",
+        ),
     )
 
     class Meta:
@@ -49,7 +61,7 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         user_data = validated_data.pop("user", None)
         if user_data:
-            user_serializer = UserUpdateSerializer(
+            user_serializer = UserSerializer(
                 data=user_data,
                 instance=instance.user,
                 partial=True,

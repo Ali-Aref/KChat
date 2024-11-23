@@ -43,6 +43,9 @@ class Profile(models.Model):
     #     output_field=models.PositiveSmallIntegerField(),
     #     db_persist=True
     # )
+    blocked_users = models.ManyToManyField(
+        USER, related_name="blocked_users", blank=True
+    )
 
     class Meta:
         ordering = ["-pk"]

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     # apps
     'user',
+    'friend',
     'chatroom',
 ]
 SITE_ID = 1
