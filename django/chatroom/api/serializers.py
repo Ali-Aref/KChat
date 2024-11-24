@@ -3,7 +3,7 @@ from pprint import pprint
 from rest_framework import serializers
 
 from chatroom.models import Chatroom, ChatroomMessages, ChatroomPoints
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from django.db.models.functions import Coalesce
 from lib.utils import get_last_days_date
 
@@ -23,7 +23,9 @@ class ChatroomDetailsSerializer(serializers.ModelSerializer):
     users = serializers.SerializerMethodField()
 
     def get_users(self, obj):
-        users = obj.users.all().values(
+        users = obj.users.filter(
+            ~Q(profile__blocked_users=self.context["request"].user)
+        ).values(
             "id",
             "first_name",
             "last_name",

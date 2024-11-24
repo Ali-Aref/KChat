@@ -33,3 +33,8 @@ def dynamic_serializer_fields(self, *args, **kwargs):
         for field_name in set(self.fields):
             if field_name in set(exclude):
                 self.fields.pop(field_name)
+
+
+def get_blocked_users_id(user):
+    """Returns blocked users id list"""
+    return user.profile.blocked_users.all().values_list("id", flat=True)
