@@ -22,7 +22,7 @@ class ChatroomModelViewSet(viewsets.ModelViewSet):
 
 class ChatroomMessagesModelViewSet(viewsets.ModelViewSet):
     pagination_class = customPagination()
-    http_method_names = ["get", "post", "head"]
+    http_method_names = ["get", "post", "head", "delete"]
     map_serializer_class = {
         "list": serializers.ChatroomMessagesListSerializer,
         "create": serializers.ChatroomMessagesCreateSerializer,

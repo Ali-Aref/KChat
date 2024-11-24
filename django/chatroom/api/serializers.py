@@ -43,9 +43,6 @@ class ChatroomDetailsSerializer(serializers.ModelSerializer):
 
         for user, point in zip(users, points):
             user["points"] = point["total_points"]
-
-        pprint(list(users), indent=2)
-        pprint(list(points), indent=2)
         return users
 
     class Meta:

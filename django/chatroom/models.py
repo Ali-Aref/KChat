@@ -23,7 +23,16 @@ class Chatroom(models.Model):
     icon = models.ImageField(upload_to=chatroom_icon_path)
     cover_photo = models.ImageField(upload_to=chatroom_cover_photo_path)
     description = models.TextField()
-    users = models.ManyToManyField(USER)
+    users = models.ManyToManyField(USER, blank=True)
+    moderators = models.ManyToManyField(
+        USER, related_name="moderators", blank=True
+    )
+    admins = models.ManyToManyField(
+        USER, related_name="admins", blank=True
+    )
+    leader = models.ManyToManyField(
+        USER, related_name="leaders", blank=True
+    )
 
     class Meta:
         ordering = ["-pk"]
