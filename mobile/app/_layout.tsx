@@ -8,6 +8,10 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
+if (__DEV__) {
+  require("../ReactotronConfig");
+}
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
