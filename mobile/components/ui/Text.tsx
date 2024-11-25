@@ -22,20 +22,37 @@ const variantStyles: Record<Variants, TailwindClass> = {
   secondary: "text-secondary",
 };
 
-const sizes: Record<Sizes, TailwindClass> = {
+const fontSizes: Record<Sizes, TailwindClass> = {
   xs: "text-xs",
   sm: "text-sm",
-  base: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
-  "2xl": "text-2xl",
-  "3xl": "text-3xl",
-  "4xl": "text-4xl",
-  "5xl": "text-5xl",
+  base: "text-lg",
+  lg: "text-xl",
+  xl: "text-2xl",
+  "2xl": "text-3xl",
+  "3xl": "text-4xl",
+  "4xl": "text-5xl",
+  "5xl": "text-6xl",
   "6xl": "text-6xl",
-  "7xl": "text-7xl",
-  "8xl": "text-8xl",
-  "9xl": "text-9xl",
+  "7xl": "text-6xl",
+  "8xl": "text-6xl",
+  "9xl": "text-6xl",
+};
+const fontSizeKeys = Object.keys(fontSizes);
+const ff: "medium" | "large" | "small" = "medium"
+
+const fontSizeMapper = (size: Sizes) => {
+  const currentIndex = fontSizeKeys.indexOf(size);
+  if (ff === "medium") {
+    return fontSizes[size];
+  } else if (ff == "large") {
+    const nextIndex = Math.min(currentIndex + 1, fontSizeKeys.length - 1);
+    return fontSizes[fontSizeKeys[nextIndex] as keyof typeof fontSizes];
+  } else {
+    const previousIndex = Math.max(currentIndex - 1, 0);
+    return fontSizes[
+      fontSizeKeys[previousIndex] as keyof typeof fontSizes
+    ];
+  }
 };
 
 export default function Text({
@@ -50,10 +67,8 @@ export default function Text({
       {...props}
       className={clsx(
         variant ? variantStyles[variant] : variantStyles.default,
-        size ? sizes[size] : sizes.base,
+        size && fontSizeMapper(size),
         className,
-				// NOTE: start from here
-				"text-xl", // test here
       )}
     >
       {children}
