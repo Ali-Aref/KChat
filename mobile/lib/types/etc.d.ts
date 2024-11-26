@@ -1,5 +1,7 @@
 import { ClassValue } from "clsx";
 
+declare const __DEV__: boolean
+
 export type TailwindClass = ClassValue;
 
 export type Variants =
