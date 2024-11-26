@@ -13,7 +13,7 @@ type TextProps = DefaultTextProps & {
 };
 
 const variantStyles: Record<Variants, TailwindClass> = {
-	default: "text-gray-800 dark:text-gray-300",
+	default: "text-light-fg dark:text-dark-fg",
 	info: "text-info",
 	success: "text-success",
 	warning: "text-warning",

@@ -1,14 +1,14 @@
 export const colors = {
-	light: {
-		bg: "#fff",
-		fg: "#000",
-		"card": "lightblue",
-	},
-	dark: {
-		bg: "#000",
-		fg: "#fff",
-		"card": "green",
-	},
+  light: {
+    bg: "#e2e8f0",
+    fg: "#0f172a",
+    card: "#f1f5f9",
+  },
+  dark: {
+    bg: "#0f172a",
+    fg: "#e2e8f0",
+    card: "#1e293b",
+  },
   primary: {
     DEFAULT: "#3b82f6",
     50: "#eff6ff",
