@@ -32,10 +32,10 @@ export default function DarkmodeSwitch({
     if (Platform.OS === "android") {
       if (isDarkmode) {
         NavigationBar.setButtonStyleAsync("dark");
-        NavigationBar.setBackgroundColorAsync(colors.light.bg)
+        NavigationBar.setBackgroundColorAsync(colors.light.bg);
       } else {
         NavigationBar.setButtonStyleAsync("light");
-        NavigationBar.setBackgroundColorAsync(colors.dark.bg)
+        NavigationBar.setBackgroundColorAsync(colors.dark.bg);
       }
     }
   };
@@ -48,15 +48,6 @@ export default function DarkmodeSwitch({
       )}
       onPress={toggleDarkmode}
     >
-      {/* 
-      <StatusBar
-        translucent={false}
-        style={colorScheme.get() === "light" ? "dark" : "light"}
-        backgroundColor={
-          colorScheme.get() === "light" ? colors.light.bg : colors.dark.bg
-        }
-      />
-			*/}
       <Feather
         size={24}
         name={colorScheme.get() === "light" ? "moon" : "sun"}
