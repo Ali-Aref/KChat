@@ -12,7 +12,8 @@ import "react-native-reanimated";
 import "../global.css";
 import { useColorScheme } from "react-native";
 import { Provider } from "react-redux";
-import store from "@/store";
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "@/store";
 
 if (__DEV__) {
   require("../ReactotronConfig");
@@ -60,13 +61,15 @@ function RootLayoutNav() {
 
   return (
     <Provider store={store}>
-      <ThemeProvider
-        value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-      >
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
+      <PersistGate persistor={persistor} loading={null}>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+          <Stack>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+          </Stack>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 }

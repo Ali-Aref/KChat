@@ -12,13 +12,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { cssInterop } from "nativewind";
 
 cssInterop(MaterialCommunityIcons, {
-	className: {
-		target: "style",
-		nativeStyleToProp: {
-			color: true,
-		}
-	}
-})
+  className: {
+    target: "style",
+    nativeStyleToProp: {
+      color: true,
+    },
+  },
+});
 
 type ModalProps = DefualtModalProps & {
   title: string;
@@ -31,7 +31,6 @@ const positionMapper = {
   top: `items-center justify-start mt-[${StatusBar.currentHeight}]`,
   bottom: "items-center justify-end",
 };
-
 
 export default function Modal({
   title,
@@ -68,7 +67,7 @@ export default function Modal({
             </Text>
             <MaterialCommunityIcons
               name="close"
-							className="text-light-fg dark:text-dark-fg  px-3 text-xl"
+              className="text-light-fg dark:text-dark-fg  px-3 text-xl"
               onPress={closeModal}
             />
           </View>

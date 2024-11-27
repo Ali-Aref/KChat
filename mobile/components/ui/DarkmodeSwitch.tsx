@@ -2,7 +2,6 @@ import React from "react";
 import { colorScheme, useColorScheme } from "nativewind";
 import { Platform, Pressable } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { TailwindClass } from "@/lib/types/etc";
 import { colors } from "@/constants/Colors";
 import clsx from "clsx";
 import {
@@ -10,15 +9,18 @@ import {
   setStatusBarBackgroundColor,
 } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
+import { useAppDispatch } from "@/hooks/useReduxToolkit";
+import { setDarkmode } from "@/store/slices/appSlice";
 
 type DarkmodeSwitchProps = {
-  className?: TailwindClass;
+  className?: string;
 };
 
 export default function DarkmodeSwitch({
   className,
 }: DarkmodeSwitchProps) {
   const { setColorScheme } = useColorScheme();
+  const dispatch = useAppDispatch();
 
   const toggleDarkmode = () => {
     const isDarkmode = colorScheme.get() === "dark";
