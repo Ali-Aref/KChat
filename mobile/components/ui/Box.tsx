@@ -22,7 +22,7 @@ export function HBox({ children, className }: BoxProps) {
 
 export function VBox({ children, className }: BoxProps) {
 	return (
-		<Box className={clsx("flex-1 flex-col", className)}>
+		<Box className={clsx("flex-1 w-full flex-col", className)}>
 			{children}
 		</Box>
 	);
