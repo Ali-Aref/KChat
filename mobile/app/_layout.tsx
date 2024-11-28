@@ -10,10 +10,16 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import "react-native-reanimated";
 import "../global.css";
-import { useColorScheme } from "react-native";
+import { Platform, useColorScheme } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "@/store";
+import * as NavigationBar from "expo-navigation-bar";
+import {
+  setStatusBarBackgroundColor,
+  setStatusBarStyle,
+} from "expo-status-bar";
+import { colors } from "@/constants/Colors";
 
 if (__DEV__) {
   require("../ReactotronConfig");
@@ -58,6 +64,22 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+
+  if (colorScheme === "dark") {
+    setStatusBarStyle("light");
+    setStatusBarBackgroundColor(colors.dark.bg);
+    if (Platform.OS === "android") {
+      NavigationBar.setButtonStyleAsync("light");
+      NavigationBar.setBackgroundColorAsync(colors.dark.bg);
+    }
+  } else {
+    setStatusBarStyle("dark");
+    setStatusBarBackgroundColor(colors.light.bg);
+    if (Platform.OS === "android") {
+      NavigationBar.setButtonStyleAsync("dark");
+      NavigationBar.setBackgroundColorAsync(colors.light.bg);
+    }
+  }
 
   return (
     <Provider store={store}>
