@@ -14,26 +14,34 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include, re_path
-from django.views.generic import TemplateView
 
+from chatroom import views as chatroom_views
+from django.contrib import admin
+from django.urls import include, path, re_path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     # for dj-rest-auth password reset
-    re_path(r'^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,32})/$',
-            TemplateView.as_view(template_name="password_reset_confirm.html"),
-            name='password_reset_confirm'),
-    path('admin/', admin.site.urls),
-    path('dj-rest-auth/password-reset/',
-         TemplateView.as_view(template_name="password_reset.html"),
-         name='password-reset'),
-    path('dj-rest-auth/password-reset/confirm/',
-         TemplateView.as_view(template_name="password_reset_confirm.html"),
-         name='password-reset-confirm'),
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    re_path(
+        r"^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,32})/$",
+        TemplateView.as_view(template_name="password_reset_confirm.html"),
+        name="password_reset_confirm",
+    ),
+    path("admin/", admin.site.urls),
     path(
-        'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
+        "dj-rest-auth/password-reset/",
+        TemplateView.as_view(template_name="password_reset.html"),
+        name="password-reset",
+    ),
+    path(
+        "dj-rest-auth/password-reset/confirm/",
+        TemplateView.as_view(template_name="password_reset_confirm.html"),
+        name="password-reset-confirm",
+    ),
+    path("dj-rest-auth/", include("dj_rest_auth.urls")),
+    path(
+        "dj-rest-auth/registration/",
+        include("dj_rest_auth.registration.urls"),
     ),
     # path(
     #     'dj-rest-auth/account-confirm-email/',
@@ -44,4 +52,11 @@ urlpatterns = [
     path("api/", include("chatroom.api.urls", namespace="chatroom")),
     path("api/", include("user.api.urls", namespace="user")),
     path("api/", include("friend.api.urls", namespace="friend")),
+    # temp chatroom
+    path("chatroom/", chatroom_views.index, name="chatroom-index"),
+    path(
+        "chatroom/<str:room_name>/",
+        chatroom_views.room,
+        name="chatroom-room",
+    ),
 ]
