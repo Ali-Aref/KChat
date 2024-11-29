@@ -20,19 +20,17 @@ const Index = () => {
 
   return (
     <View style={styles.container}>
+      <Text size="xs">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="sm">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="md">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="lg">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="2xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="3xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="4xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+      <Text size="5xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+			<View style={{ height: 5}} />
 			<Text>fontScale: {UnistylesRuntime.fontScale}</Text>
-      <Text variant="info">
-        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
-      </Text>
-      <Text variant="warning">
-        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
-      </Text>
-      <Text variant="success">
-        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
-      </Text>
-      <Text variant="error">
-        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
-      </Text>
       <Text>Unistyles example</Text>
     </View>
   );
@@ -49,6 +47,6 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
     paddingTop: runtime.insets.top,
   },
 	text: {
-		fontWeight: "bold",
+		fontSize: 20,
 	},
 }));
