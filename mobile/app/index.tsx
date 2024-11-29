@@ -1,23 +1,39 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { createStyleSheet, useStyles, UnistylesRuntime } from "react-native-unistyles";
+import { View } from "react-native";
+import Text from "@/components/ui/Text";
+import {
+  createStyleSheet,
+  useStyles,
+  UnistylesRuntime,
+} from "react-native-unistyles";
 
 const Index = () => {
-  const { styles } = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
 
-	const toggleAdaptiveTheme = () => {
-		const hasAdaptiveThemes = UnistylesRuntime.hasAdaptiveThemes
-		UnistylesRuntime.setAdaptiveThemes(!hasAdaptiveThemes)
-	}
-	const changeTheme = () => {
-		UnistylesRuntime.setTheme("dark")
-	}
-
+  const toggleAdaptiveTheme = () => {
+    const hasAdaptiveThemes = UnistylesRuntime.hasAdaptiveThemes;
+    UnistylesRuntime.setAdaptiveThemes(!hasAdaptiveThemes);
+  };
+  const changeTheme = () => {
+    UnistylesRuntime.setTheme("dark");
+  };
 
   return (
     <View style={styles.container}>
-			<Text style={styles.text}>{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text style={styles.text}>Unistyles example</Text>
+			<Text>fontScale: {UnistylesRuntime.fontScale}</Text>
+      <Text variant="info">
+        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
+      </Text>
+      <Text variant="warning">
+        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
+      </Text>
+      <Text variant="success">
+        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
+      </Text>
+      <Text variant="error">
+        {UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}
+      </Text>
+      <Text>Unistyles example</Text>
     </View>
   );
 };
@@ -30,9 +46,9 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: theme.colors.background,
-		paddingTop: runtime.insets.top,
+    paddingTop: runtime.insets.top,
   },
-  text: {
-    //color: theme.colors.typography,
-  },
+	text: {
+		fontWeight: "bold",
+	},
 }));
