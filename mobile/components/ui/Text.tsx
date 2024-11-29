@@ -5,7 +5,7 @@ import { createStyleSheet, useStyles } from "react-native-unistyles";
 type TextProps = RNTextProps & {
   color?: "info" | "success" | "warning" | "error";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
-  fontWeight?: "semibold" | "bold" | "extrabold";
+  weight?: "extrathin" | "thin" | "semibold" | "bold" | "extrabold";
 };
 
 export default function Text({
@@ -13,13 +13,13 @@ export default function Text({
   style,
   color,
   size,
-  fontWeight,
+  weight,
   ...props
 }: TextProps) {
   const { styles } = useStyles(stylesheet, {
     color,
-    fontWeight,
     size,
+    weight,
   });
 
   return (
@@ -39,11 +39,6 @@ const stylesheet = createStyleSheet((theme) => ({
         error: { color: theme.colors.red["500"] },
         default: { color: theme.colors.typography },
       },
-      fontWeight: {
-        semibold: { fontWeight: "600" },
-        bold: { fontWeight: "700" },
-        extrabold: { fontWeight: "900" },
-      },
       size: {
         default: { fontSize: 16 },
         xs: { fontSize: 12 },
@@ -55,6 +50,13 @@ const stylesheet = createStyleSheet((theme) => ({
         "3xl": { fontSize: 24 },
         "4xl": { fontSize: 26 },
         "5xl": { fontSize: 28 },
+      },
+      weight: {
+				extrathin: { fontWeight: "100" },
+				thin: { fontWeight: "300" },
+        semibold: { fontWeight: "600" },
+        bold: { fontWeight: "700" },
+        extrabold: { fontWeight: "900" },
       },
     },
   },
