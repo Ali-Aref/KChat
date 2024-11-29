@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { createStyleSheet, useStyles, UnistylesRuntime } from "react-native-unistyles";
 
-export const ExampleUnistyles = () => {
+const Index = () => {
   const { styles } = useStyles(stylesheet);
 
 	const toggleAdaptiveTheme = () => {
@@ -16,11 +16,13 @@ export const ExampleUnistyles = () => {
 
   return (
     <View style={styles.container}>
-			<Text>{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
+			<Text style={styles.text}>{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
       <Text style={styles.text}>Unistyles example</Text>
     </View>
   );
 };
+
+export default Index;
 
 const stylesheet = createStyleSheet((theme, runtime) => ({
   container: {
@@ -31,6 +33,6 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
 		paddingTop: runtime.insets.top,
   },
   text: {
-    color: theme.colors.typography,
+    //color: theme.colors.typography,
   },
 }));
