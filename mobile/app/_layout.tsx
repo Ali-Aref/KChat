@@ -1,25 +1,39 @@
-import { Stack } from "expo-router";
-import {
-  UnistylesProvider,
-  UnistylesRuntime,
-  useStyles,
-} from "react-native-unistyles";
-import "@/lib/theme/unistyles";
-import * as NavigationBar from "expo-navigation-bar";
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import 'react-native-reanimated';
+
+import { useColorScheme } from '@/hooks/useColorScheme';
+
+// Prevent the splash screen from auto-hiding before asset loading is complete.
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const { theme } = useStyles();
+  const colorScheme = useColorScheme();
+  const [loaded] = useFonts({
+    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  });
 
-  UnistylesRuntime.statusBar.setColor(theme.colors.background);
-  UnistylesRuntime.navigationBar.setColor(theme.colors.background);
-  NavigationBar.setButtonStyleAsync(
-    UnistylesRuntime.colorScheme === "dark" ? "light" : "dark",
-  );
-  //StatusBar.setBarStyle(colorScheme === "dark" ? "light-content" : "dark-content")
+  useEffect(() => {
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
-    <UnistylesProvider>
-      <Stack />
-    </UnistylesProvider>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
+      </Stack>
+      <StatusBar style="auto" />
+    </ThemeProvider>
   );
 }
