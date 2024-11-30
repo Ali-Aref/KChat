@@ -33,11 +33,11 @@ const stylesheet = createStyleSheet((theme) => ({
   text: {
     variants: {
       color: {
+        default: { color: theme.colors.typography },
         info: { color: theme.colors.blue["500"] },
         warning: { color: theme.colors.orange["500"] },
         success: { color: theme.colors.green["500"] },
-        error: { color: theme.colors.red["500"] },
-        default: { color: theme.colors.typography },
+        error: { color: theme.colors.red["700"] },
       },
       size: {
         default: { fontSize: 16 },

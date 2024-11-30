@@ -6,6 +6,7 @@ import {
   useStyles,
   UnistylesRuntime,
 } from "react-native-unistyles";
+import TextInput from "@/components/ui/TextInput";
 
 const Index = () => {
   const { styles, theme } = useStyles(stylesheet);
@@ -20,18 +21,11 @@ const Index = () => {
 
   return (
     <View style={styles.container}>
-      <Text size="xs">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="sm">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="md">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="lg">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="2xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="3xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="4xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-      <Text size="5xl">{UnistylesRuntime.themeName} -- {UnistylesRuntime.colorScheme}</Text>
-			<View style={{ height: 5}} />
-			<Text>fontScale: {UnistylesRuntime.fontScale}</Text>
-      <Text>Unistyles example</Text>
+			<TextInput label="Username" value="Hello" />
+			<TextInput label="Username" value="Hello" variant="info" />
+			<TextInput label="Username" value="Hello" variant="success" />
+			<TextInput label="Username" value="Hello" variant="warning" />
+			<TextInput label="Username" value="Hello" variant="error" />
     </View>
   );
 };
@@ -44,7 +38,8 @@ const stylesheet = createStyleSheet((theme, runtime) => ({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: theme.colors.background,
-    paddingTop: runtime.insets.top,
+		paddingHorizontal: 20,
+		gap: 10,
   },
 	text: {
 		fontSize: 20,
