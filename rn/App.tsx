@@ -15,7 +15,7 @@ import {
 import {darkTheme, lightTheme} from './lib/theme/themes';
 import Icon from 'react-native-vector-icons/Feather';
 import Text from './components/ui/Text';
-import TextInput from './components/ui/TextInput';
+import Button from './components/ui/Button';
 
 Appearance.setColorScheme(null);
 
@@ -34,22 +34,10 @@ export default function App(): React.JSX.Element {
     <View style={styles.container}>
       <Text>Colorschem: {UnistylesRuntime.colorScheme}</Text>
       <View style={styles.main}>
-        <TextInput
-          label="Username"
-          value="Hello"
-          leftIcon={<Icon name="lock" size={20} style={styles.icon} />}
-          rightIcon={<Icon name="eye" size={20} style={styles.icon} />}
-        />
-        <TextInput
-          label="Username"
-          value="Hello"
-          leftIcon={<Icon name="lock" size={20} style={styles.icon} />}
-          rightIcon={<Icon name="eye" size={20} style={styles.icon} />}
-        />
-        <TextInput label="Username" value="Hello" variant="info" />
-        <TextInput label="Username" value="Hello" variant="success" />
-        <TextInput label="Username" value="Hello" variant="warning" />
-        <TextInput label="Username" value="Hello" variant="error" />
+        <Button variant="info" title="button" />
+        <Button variant="success" title="button" />
+        <Button variant="warning" title="button" />
+        <Button variant="error" title="button" />
       </View>
     </View>
   );
@@ -66,8 +54,9 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   main: {
     gap: 10,
+    marginTop: 10,
   },
-	icon: {
-		color: theme.colors.typography,
-	},
+  icon: {
+    color: theme.colors.typography,
+  },
 }));
