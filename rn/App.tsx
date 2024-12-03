@@ -11,6 +11,7 @@ import Text from './components/ui/Text';
 import Button from './components/ui/Button';
 import Icon from 'react-native-vector-icons/Feather';
 import gs from './lib/theme/global.style';
+import TextInput from './components/ui/TextInput';
 
 Appearance.setColorScheme(null);
 
@@ -50,6 +51,13 @@ export default function App(): React.JSX.Element {
         <Button variant="warning" title="button" />
         <Button variant="error" title="button" />
       </View>
+			<View style={[styles.main]}>
+				<TextInput
+					label="Username"
+					variant="error"
+					errorMessage="This field is required"
+				/>
+			</View>
     </View>
   );
 }
@@ -64,10 +72,11 @@ const styles = StyleSheet.create((theme, rt) => ({
     backgroundColor: theme.colors.background,
   },
   main: {
+		width: "100%",
     gap: 10,
     marginTop: 10,
-		justifyContent: 'center',
-		alignItems: 'center',
+		//justifyContent: 'center',
+		//alignItems: 'center',
   },
   icon: {
     color: theme.colors.typography,

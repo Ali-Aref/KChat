@@ -16,6 +16,8 @@ type TextInputProps = RNTextInputProps &
     label?: string;
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
+		errorMessage?: string;
+		description?: string;
   };
 
 export default function TextInput({
@@ -26,6 +28,8 @@ export default function TextInput({
   onBlur,
   leftIcon,
   rightIcon,
+	errorMessage,
+	description,
   ...props
 }: TextInputProps) {
   const [focused, setFocused] = useState<boolean>(false);
@@ -64,12 +68,15 @@ export default function TextInput({
         />
         {rightIcon && rightIcon}
       </View>
+			{errorMessage && <Text color="error">{errorMessage}</Text>}
+			{description && <Text>{description}</Text>}
     </View>
   );
 }
 
 const styles = StyleSheet.create(theme => ({
   container: {
+		gap: 5, // START: from here check the gap between errorMessage and description
     width: '100%',
     //backgroundColor: theme.colors.sky["800"],
   },
