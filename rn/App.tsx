@@ -71,6 +71,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     justifyContent: 'center',
     backgroundColor: theme.colors.background,
   },
+  hide: {display: 'none'},
   main: {
 		width: "100%",
     gap: 10,

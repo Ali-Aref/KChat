@@ -1,4 +1,5 @@
 import {colors} from './colors';
+import { fontSizes } from './constants';
 
 const shared = {
   fs: {
