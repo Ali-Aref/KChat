@@ -1,21 +1,16 @@
 import './lib/theme/unistyles';
 import React from 'react';
-import {
-  ScrollView,
-  Appearance,
-  View,
-  StatusBar,
-  useColorScheme,
-} from 'react-native';
+import {Appearance, View, StatusBar, useColorScheme} from 'react-native';
 import {
   StatusBarStyle,
   StyleSheet,
   UnistylesRuntime,
 } from 'react-native-unistyles';
 import {darkTheme, lightTheme} from './lib/theme/themes';
-import Icon from 'react-native-vector-icons/Feather';
 import Text from './components/ui/Text';
 import Button from './components/ui/Button';
+import Icon from 'react-native-vector-icons/Feather';
+import gs from './lib/theme/global.style';
 
 Appearance.setColorScheme(null);
 
@@ -31,9 +26,25 @@ export default function App(): React.JSX.Element {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, gs.main]}>
       <Text>Colorschem: {UnistylesRuntime.colorScheme}</Text>
-      <View style={styles.main}>
+      <View style={[styles.main, gs.hide]}>
+        <Button variant="primary" title="button" />
+        <Button size="xs" variant="info" title="button" />
+        <Button size="sm" variant="info" title="button" />
+        <Button size="md" variant="info" title="button" />
+        <Button size="lg" variant="info" title="button" />
+        <Button size="xl" variant="primary" title="Login" icon={
+					<Icon name="home" />
+				} />
+      </View>
+      <View style={[styles.main, gs.hide]}>
+        <Button size="md" variant="secondary" icon={<Icon name="home" />} title='Hola' />
+        <Button variant="secondary" size="md" title="button" />
+        <Button variant="primary" loading title="button" />
+        <Button variant="secondary" icon={<Icon name="home" size={20} />} title="button" />
+        <Button variant="primary" title="button" />
+        <Button variant="secondary" title="button" disabled />
         <Button variant="info" title="button" />
         <Button variant="success" title="button" />
         <Button variant="warning" title="button" />
@@ -55,6 +66,8 @@ const styles = StyleSheet.create((theme, rt) => ({
   main: {
     gap: 10,
     marginTop: 10,
+		justifyContent: 'center',
+		alignItems: 'center',
   },
   icon: {
     color: theme.colors.typography,
