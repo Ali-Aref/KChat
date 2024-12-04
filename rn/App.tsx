@@ -40,7 +40,7 @@ export default function App(): React.JSX.Element {
 				} />
       </View>
       <View style={[styles.main, gs.hide]}>
-        <Button size="md" variant="secondary" icon={<Icon name="home" />} title='Hola' />
+        <Button variant="info" icon={<Icon name="home" />} title='Hola' />
         <Button variant="secondary" size="md" title="button" />
         <Button variant="primary" loading title="button" />
         <Button variant="secondary" icon={<Icon name="home" size={20} />} title="button" />
@@ -51,11 +51,30 @@ export default function App(): React.JSX.Element {
         <Button variant="warning" title="button" />
         <Button variant="error" title="button" />
       </View>
-			<View style={[styles.main]}>
+			<View style={[styles.main, gs.hide]}>
+				<TextInput
+					label="Username"
+					leftIcon={<Icon name="user" size={20} />}
+				/>
+				<TextInput
+					label="Username"
+					variant="info"
+					leftIcon={<Icon name="user" size={20} />}
+				/>
+				<TextInput
+					label="Username"
+					variant="success"
+					leftIcon={<Icon name="user" size={20} />}
+				/>
+				<TextInput
+					label="Username"
+					variant="warning"
+					leftIcon={<Icon name="user" size={20} />}
+				/>
 				<TextInput
 					label="Username"
 					variant="error"
-					errorMessage="This field is required"
+					leftIcon={<Icon name="user" size={20} />}
 				/>
 			</View>
     </View>
@@ -76,6 +95,7 @@ const styles = StyleSheet.create((theme, rt) => ({
 		width: "100%",
     gap: 10,
     marginTop: 10,
+		marginBottom: 100,
 		//justifyContent: 'center',
 		//alignItems: 'center',
   },

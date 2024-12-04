@@ -58,14 +58,14 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     typography: colors.slate['200'],
-    background: colors.slate['900'],
+    background: colors.slate['700'],
     ...colors,
   },
   ...shared,
   components: {
     textInput: {
-      bg: colors.slate['800'],
-      borderColor: colors.slate['700'],
+      bg: colors.slate['500'],
+      borderColor: colors.slate['400'],
     },
   },
 } as const;
