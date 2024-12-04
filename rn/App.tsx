@@ -30,53 +30,77 @@ export default function App(): React.JSX.Element {
     <View style={[styles.container, gs.main]}>
       <Text>Colorschem: {UnistylesRuntime.colorScheme}</Text>
       <View style={[styles.main, gs.hide]}>
-        <Button variant="primary" title="button" />
+        <Text>Button Sizes</Text>
         <Button size="xs" variant="info" title="button" />
         <Button size="sm" variant="info" title="button" />
-        <Button size="md" variant="info" title="button" />
+        <Button size="md" variant="info" title="button md" />
+        <Button variant="info" title="button def" />
         <Button size="lg" variant="info" title="button" />
-        <Button size="xl" variant="primary" title="Login" icon={
-					<Icon name="home" />
-				} />
+        <Button size="xl" variant="info" title="button" />
+        <Button size="2xl" variant="info" title="button" />
+        <Button size="3xl" variant="info" title="button" />
       </View>
       <View style={[styles.main, gs.hide]}>
-        <Button variant="info" icon={<Icon name="home" />} title='Hola' />
-        <Button variant="secondary" size="md" title="button" />
-        <Button variant="primary" loading title="button" />
-        <Button variant="secondary" icon={<Icon name="home" size={20} />} title="button" />
-        <Button variant="primary" title="button" />
-        <Button variant="secondary" title="button" disabled />
-        <Button variant="info" title="button" />
-        <Button variant="success" title="button" />
-        <Button variant="warning" title="button" />
-        <Button variant="error" title="button" />
+        <Text>Button Variants</Text>
+        <Button variant="primary" title="Primary" />
+        <Button variant="secondary" title="Secondary" />
+        <Button variant="info" title="Info" />
+        <Button variant="success" title="Success" />
+        <Button variant="warning" title="Warning" />
+        <Button variant="error" title="Error" />
       </View>
-			<View style={[styles.main, gs.hide]}>
-				<TextInput
-					label="Username"
-					leftIcon={<Icon name="user" size={20} />}
-				/>
-				<TextInput
-					label="Username"
-					variant="info"
-					leftIcon={<Icon name="user" size={20} />}
-				/>
-				<TextInput
-					label="Username"
-					variant="success"
-					leftIcon={<Icon name="user" size={20} />}
-				/>
-				<TextInput
-					label="Username"
-					variant="warning"
-					leftIcon={<Icon name="user" size={20} />}
-				/>
-				<TextInput
-					label="Username"
-					variant="error"
-					leftIcon={<Icon name="user" size={20} />}
-				/>
-			</View>
+      <View style={[styles.main, gs.hide]}>
+        <Text>Disabled Buttons</Text>
+        <Button disabled variant="primary" title="Primary" />
+        <Button disabled variant="secondary" title="Secondary" />
+        <Button disabled variant="info" title="Info" />
+        <Button disabled variant="success" title="Success" />
+        <Button disabled variant="warning" title="Warning" />
+        <Button disabled variant="error" title="Error" />
+      </View>
+      <View style={[styles.main, gs.hide]}>
+        <Text>Buttons with Icon</Text>
+				<View style={[gs.row]}>
+					<Button icon={<Icon name="home" size={25} />} variant="primary" />
+					<Button icon={<Icon name="home" size={25} />} variant="secondary" />
+					<Button icon={<Icon name="home" size={25} />} variant="info" />
+					<Button icon={<Icon name="home" size={25} />} variant="success" />
+					<Button icon={<Icon name="home" size={25} />} variant="warning" />
+					<Button icon={<Icon name="home" size={25} />} variant="error" />
+				</View>
+        <Button icon={<Icon name="home" size={25} />} variant="primary" title="Primary" />
+        <Button icon={<Icon name="home" size={25} />} variant="secondary" title="Secondary" />
+        <Button icon={<Icon name="home" size={25} />} variant="info" title="Info" />
+        <Button icon={<Icon name="home" size={25} />} variant="success" title="Success" />
+        <Button icon={<Icon name="home" size={25} />} variant="warning" title="Warning" />
+        <Button icon={<Icon name="home" size={25} />} variant="error" title="Error" />
+      </View>
+      <View style={[styles.main, ]}>
+        <TextInput
+          label="Username"
+          leftIcon={<Icon name="user" size={20} />}
+        />
+        <TextInput
+          label="Username"
+          variant="info"
+          leftIcon={<Icon name="user" size={20} />}
+        />
+        <TextInput
+          label="Username"
+          variant="success"
+          leftIcon={<Icon name="user" size={20} />}
+        />
+        <TextInput
+          label="Username"
+          variant="warning"
+          leftIcon={<Icon name="user" size={20} />}
+        />
+        <TextInput
+          label="Username"
+          variant="error"
+          leftIcon={<Icon name="user" size={20} />}
+        />
+      </View>
     </View>
   );
 }
@@ -92,12 +116,12 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   hide: {display: 'none'},
   main: {
-		width: "100%",
+    width: '100%',
     gap: 10,
     marginTop: 10,
-		marginBottom: 100,
-		//justifyContent: 'center',
-		//alignItems: 'center',
+    marginBottom: 100,
+    //justifyContent: 'center',
+    //alignItems: 'center',
   },
   icon: {
     color: theme.colors.typography,

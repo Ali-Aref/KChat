@@ -1,5 +1,4 @@
 import {colors} from './colors';
-import { fontSizes } from './constants';
 
 const shared = {
   fs: {
@@ -58,7 +57,7 @@ export const lightTheme = {
 export const darkTheme = {
   colors: {
     typography: colors.slate['200'],
-    background: colors.slate['700'],
+    background: colors.slate['800'],
     ...colors,
   },
   ...shared,

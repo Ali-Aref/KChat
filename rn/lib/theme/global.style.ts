@@ -5,7 +5,11 @@ const gs = StyleSheet.create(theme => ({
   main: {
     flex: 1,
     paddingHorizontal: theme.p.lg,
-		paddingVertical: theme.p.md,
+    paddingVertical: theme.p.md,
+  },
+  row: {
+		gap: 5,
+    flexDirection: 'row',
   },
 }));
 

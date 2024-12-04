@@ -124,8 +124,8 @@ const styles = StyleSheet.create(theme => ({
     borderRadius: 5,
     overflow: 'hidden',
     paddingHorizontal: 10,
-    borderWidth: focused ? 2 : StyleSheet.hairlineWidth,
-    marginVertical: focused ? StyleSheet.hairlineWidth : 2,
+    borderWidth: focused ? 2 : 1,
+    marginVertical: focused ? 1 : 2,
     backgroundColor: theme.components.textInput.bg,
     borderColor: theme.components.textInput.borderColor, // remove when default vairants are supported
   }),
