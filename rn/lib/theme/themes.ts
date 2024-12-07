@@ -37,6 +37,18 @@ const shared = {
 		'4xl': 20,
 		'5xl': 22,
 	},
+	radius: {
+		default: 6,
+		xs: 2,
+		sm: 4,
+		md: 6,
+		lg: 8,
+		xl: 10,
+		'2xl': 14,
+		'3xl': 16,
+		'4xl': 20,
+		'5xl': 24,
+	},
 } as const;
 
 export const lightTheme = {
