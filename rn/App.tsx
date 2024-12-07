@@ -1,5 +1,5 @@
 import './lib/theme/unistyles';
-import React from 'react';
+import React, { useState } from 'react';
 import {Appearance, View, StatusBar, useColorScheme} from 'react-native';
 import {
   StatusBarStyle,
@@ -12,11 +12,13 @@ import Button from './components/ui/Button';
 import Icon from 'react-native-vector-icons/Feather';
 import gs from './lib/theme/global.style';
 import TextInput from './components/ui/TextInput';
+import Modal from './components/ui/Modal';
 
 Appearance.setColorScheme(null);
 
 export default function App(): React.JSX.Element {
   const colorScheme = useColorScheme();
+	const [showModal, setshowModal] = useState<boolean>(false)
   // setting statusbar
   if (colorScheme === 'light') {
     UnistylesRuntime.statusBar.setStyle(StatusBarStyle.Dark);
@@ -75,7 +77,7 @@ export default function App(): React.JSX.Element {
         <Button icon={<Icon name="home" size={25} />} variant="warning" title="Warning" />
         <Button icon={<Icon name="home" size={25} />} variant="error" title="Error" />
       </View>
-      <View style={[styles.main, ]}>
+      <View style={[styles.main, gs.hide]}>
         <TextInput
           label="Username"
           leftIcon={<Icon name="user" size={20} />}
@@ -101,6 +103,69 @@ export default function App(): React.JSX.Element {
           leftIcon={<Icon name="user" size={20} />}
         />
       </View>
+			<View style={[styles.main]}>
+				<Button variant="primary" title="Show modal" onPress={()=>{
+					setshowModal(true)
+				}} />
+				<Modal
+					position="bottom"
+					show={{ get: showModal, set: setshowModal }}
+					containerStyle={{
+					}}
+				>
+					<View>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
+					</View>
+				</Modal>
+			</View>
     </View>
   );
 }
