@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import gs from './lib/theme/global.style';
 import TextInput from './components/ui/TextInput';
 import Modal from './components/ui/Modal';
+import Card, { CardFooter, CardTitle } from './components/ui/Card';
 
 Appearance.setColorScheme(null);
 
@@ -103,9 +104,9 @@ export default function App(): React.JSX.Element {
           leftIcon={<Icon name="user" size={20} />}
         />
       </View>
-			<View style={[styles.main]}>
+			<View style={[styles.main, gs.hide]}>
 				<Button variant="primary" title="Show modal" onPress={()=>{
-					setshowModal(true)
+					setshowModal(true);
 				}} />
 				<Modal
 					position="bottom"
@@ -116,55 +117,22 @@ export default function App(): React.JSX.Element {
 					<View>
 						<Text>Here is our modal</Text>
 						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
 						<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
 					</View>
 				</Modal>
+			</View>
+			<View style={[styles.main]}>
+				<Card rounded>
+						<CardTitle>Credit Details</CardTitle>
+						<Text>Here is our modal</Text>
+						<Text>Here is our modal</Text>
+						<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
+						<CardFooter row style={{}}>
+							<Button variant="error" title="Close" style={{ flex: 1 }} />
+							<Button variant="warning" title="Close" />
+							<Button variant="info" title="Apply" />
+						</CardFooter>
+				</Card>
 			</View>
     </View>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text as RNText, TextProps as RNTextProps} from 'react-native';
 import {StyleSheet, UnistylesVariants} from 'react-native-unistyles';
 
-type TextProps = RNTextProps & UnistylesVariants<typeof styles> & {};
+export type TextProps = RNTextProps & UnistylesVariants<typeof styles> & {};
 
 export default function Text({
   children,

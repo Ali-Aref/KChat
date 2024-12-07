@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Pressable,
   PressableProps,
+  ViewStyle,
 } from 'react-native';
 import {StyleSheet, UnistylesVariants} from 'react-native-unistyles';
 import Text from './Text';
@@ -31,6 +32,7 @@ export default function Button({
   icon,
   variant,
   size,
+	style,
   titleStyle: titleStyle,
   ...props
 }: ButtonProps) {
@@ -49,7 +51,8 @@ export default function Button({
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       // TODO: add buttonStyle prop here
-      style={[styles.button(pressed, !!title)]}
+      //style={()=>[styles.button(pressed, !!title)]}
+			style={() => ([style])}
       {...props}>
       {loading ? (
         <ActivityIndicator
@@ -75,6 +78,7 @@ const styles = StyleSheet.create(theme => ({
     gap: 10,
     borderRadius: 10,
     borderWidth: pressed ? 1 : 2,
+		margin: pressed ? 1 : 0,
     paddingVertical: 10,
     paddingHorizontal: title ? 20 : 10,
     variants: {

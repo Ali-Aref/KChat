@@ -55,6 +55,7 @@ export const lightTheme = {
   colors: {
     typography: colors.slate['900'],
     background: colors.slate['200'],
+		cardBackground: colors.slate['100'],
     ...colors,
   },
   ...shared,
@@ -70,6 +71,7 @@ export const darkTheme = {
   colors: {
     typography: colors.slate['200'],
     background: colors.slate['800'],
+		cardBackground: colors.slate['700'],
     ...colors,
   },
   ...shared,
