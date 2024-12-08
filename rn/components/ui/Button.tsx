@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Pressable,
   PressableProps,
+  StyleProp,
   ViewStyle,
 } from 'react-native';
 import {StyleSheet, UnistylesVariants} from 'react-native-unistyles';
@@ -32,8 +33,8 @@ export default function Button({
   icon,
   variant,
   size,
-	style,
-  titleStyle: titleStyle,
+  titleStyle,
+  style,
   ...props
 }: ButtonProps) {
   styles.useVariants({variant, size, disabled: !!props.disabled});
@@ -51,8 +52,10 @@ export default function Button({
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       // TODO: add buttonStyle prop here
-      //style={()=>[styles.button(pressed, !!title)]}
-			style={() => ([style])}
+      style={[
+        styles.button(pressed, !!title),
+        style as StyleProp<ViewStyle>,
+      ]}
       {...props}>
       {loading ? (
         <ActivityIndicator
@@ -78,7 +81,7 @@ const styles = StyleSheet.create(theme => ({
     gap: 10,
     borderRadius: 10,
     borderWidth: pressed ? 1 : 2,
-		margin: pressed ? 1 : 0,
+    margin: pressed ? 1 : 0,
     paddingVertical: 10,
     paddingHorizontal: title ? 20 : 10,
     variants: {
