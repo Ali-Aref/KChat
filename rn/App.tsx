@@ -13,7 +13,8 @@ import Icon from 'react-native-vector-icons/Feather';
 import gs from './lib/theme/global.style';
 import TextInput from './components/ui/TextInput';
 import Modal from './components/ui/Modal';
-import Card, { CardFooter, CardTitle } from './components/ui/Card';
+import Card, { CardActions, CardButton, CardSection, CardTitle } from './components/ui/Card';
+import ButtonGroup from './components/ui/ButtonGroup';
 
 Appearance.setColorScheme(null);
 
@@ -124,15 +125,56 @@ export default function App(): React.JSX.Element {
 			<View style={[styles.main]}>
 				<Card rounded>
 						<CardTitle>Credit Details</CardTitle>
-						<Text>Here is our modal</Text>
-						<Text>Here is our modal</Text>
-						<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
-						<CardFooter row style={{}}>
-							<Button variant="error" title="Close" style={{ flex: 1 }} />
-							<Button variant="warning" title="Close" />
-							<Button variant="info" title="Apply" />
-						</CardFooter>
+						<CardSection>
+							<Text>Here is our modal</Text>
+							<Text>Here is our modal</Text>
+							<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
+						</CardSection>
+						<CardSection>
+							<Text>Here is our modal</Text>
+							<Text>Here is our modal</Text>
+							<Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa vero porro at, quidem, nulla vel ratione nobis voluptatibus vitae ea expedita nesciunt officia repellat, beatae dolorum! Labore, aliquid nemo!!!!</Text>
+						</CardSection>
+						<CardSection row>
+							<Text>is our modal</Text>
+							<Text>Here is our modal</Text>
+
+						</CardSection>
+						<CardActions>
+							<ButtonGroup
+								buttons={[
+									{
+										variant: 'error',
+										title: 'Reject',
+										icon: <Icon name="slash" />,
+									},
+									{
+										variant: 'success',
+										title: 'Approve',
+										icon: <Icon name="check" />,
+									},
+								]}
+							/>
+						</CardActions>
 				</Card>
+				<View style={{ backgroundColor: 'purple', padding: 1, }}>
+							<ButtonGroup
+								buttons={[
+									{
+										variant: 'error',
+										title: 'Reject',
+										icon: <Icon name="slash" />,
+									},
+									{
+										variant: 'success',
+										title: 'Approve',
+										icon: <Icon name="check" />,
+									},
+								]}
+							/>
+
+				</View>
+
 			</View>
     </View>
   );
