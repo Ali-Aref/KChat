@@ -9,7 +9,7 @@ import {
 import {StyleSheet, UnistylesVariants} from 'react-native-unistyles';
 import Text from './Text';
 
-type ButtonProps = PressableProps &
+export type ButtonProps = PressableProps &
   UnistylesVariants<typeof styles> & {
     title?: string;
     loading?: boolean;
@@ -74,16 +74,14 @@ export default function Button({
 
 const styles = StyleSheet.create(theme => ({
   button: (pressed: boolean, title: boolean) => ({
-    //borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
     borderRadius: 10,
     borderWidth: pressed ? 1 : 2,
-    margin: pressed ? 1 : 0,
-    paddingVertical: 10,
-    paddingHorizontal: title ? 20 : 10,
+    paddingVertical: pressed ? 11 : 10,
+    paddingHorizontal: (title ? 20 : 10) + (pressed ? 1 : 0),
     variants: {
       variant: {
         default: {
