@@ -62,9 +62,8 @@ const styles = StyleSheet.create(theme => ({
   },
   cardFooter: (row?: boolean) => ({
     //backgroundColor: theme.colors.teal['400'],
+		gap: theme.m.sm,
     marginTop: theme.m.sm,
     flexDirection: row ? 'row' : 'column',
-		alignItems: 'center',
-		//  justifyContent: 'space-between',
   }),
 }));
