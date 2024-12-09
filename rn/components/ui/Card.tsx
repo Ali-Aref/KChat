@@ -77,7 +77,6 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: row ? 'row' : 'column',
   }),
   cardActionsContainer: {
-		flexDirection: 'row',
     marginBottom: -theme.m.md,
     marginHorizontal: -theme.m.md,
   },

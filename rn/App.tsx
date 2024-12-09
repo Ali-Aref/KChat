@@ -157,13 +157,17 @@ export default function App(): React.JSX.Element {
 							/>
 						</CardActions>
 				</Card>
-				<View style={{ backgroundColor: 'purple', padding: 1, }}>
+				<View style={{ padding: 1, }}>
 							<ButtonGroup
 								buttons={[
 									{
 										variant: 'error',
 										title: 'Reject',
 										icon: <Icon name="slash" />,
+											style: {
+    borderStartEndRadius: 10,
+
+										}
 									},
 									{
 										variant: 'success',
