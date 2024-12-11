@@ -1,6 +1,6 @@
 import './lib/theme/unistyles';
 import React, { useState } from 'react';
-import {Appearance, View, StatusBar, useColorScheme} from 'react-native';
+import {Appearance, View, StatusBar, useColorScheme, Image} from 'react-native';
 import {
   StatusBarStyle,
   StyleSheet,
@@ -122,7 +122,7 @@ export default function App(): React.JSX.Element {
 					</View>
 				</Modal>
 			</View>
-			<View style={[styles.main, gs.hide]}>
+			<View style={[styles.main, ]}>
 				<Card rounded>
 						<CardTitle>Credit Details</CardTitle>
 						<CardSection>
@@ -142,13 +142,13 @@ export default function App(): React.JSX.Element {
 						</CardSection>
 						<CardActions>
 							<ButtonGroup>
-								<Button variant="secondary" title="Error" icon={<Icon name="user" />} />
-								<Button variant="info" title="Hello Info" icon={<Icon name="check" />} />
 								<Button variant="primary" title="Primary" icon={<Icon name="home" />} />
+								<Button variant="secondary" title="Primary" icon={<Icon name="home" />} />
 							</ButtonGroup>
 						</CardActions>
 				</Card>
 			</View>
+			<Image source={require("./assets/images/logo/logo.png")} />
     </View>
   );
 }

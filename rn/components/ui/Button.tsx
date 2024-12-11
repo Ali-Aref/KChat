@@ -90,11 +90,11 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.textInput.bg,
         },
         primary: {
-          backgroundColor: theme.colors.primary['400'],
+          backgroundColor: theme.colors.primary['500'],
           borderColor: theme.colors.primary['300'],
         },
         secondary: {
-          backgroundColor: theme.colors.secondary['400'],
+          backgroundColor: theme.colors.secondary['500'],
           borderColor: theme.colors.secondary['300'],
         },
         info: {
