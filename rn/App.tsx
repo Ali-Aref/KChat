@@ -6,14 +6,14 @@ import {
   StyleSheet,
   UnistylesRuntime,
 } from 'react-native-unistyles';
-import {darkTheme, lightTheme, shared} from './lib/theme/themes';
+import {darkTheme, lightTheme} from './lib/theme/themes';
 import Text from './components/ui/Text';
 import Button from './components/ui/Button';
 import Icon from 'react-native-vector-icons/Feather';
 import gs from './lib/theme/global.style';
 import TextInput from './components/ui/TextInput';
 import Modal from './components/ui/Modal';
-import Card, { CardActions, CardButton, CardSection, CardTitle } from './components/ui/Card';
+import Card, { CardActions, CardSection, CardTitle } from './components/ui/Card';
 import ButtonGroup from './components/ui/ButtonGroup';
 
 Appearance.setColorScheme(null);
@@ -122,7 +122,7 @@ export default function App(): React.JSX.Element {
 					</View>
 				</Modal>
 			</View>
-			<View style={[styles.main]}>
+			<View style={[styles.main, gs.hide]}>
 				<Card rounded>
 						<CardTitle>Credit Details</CardTitle>
 						<CardSection>

@@ -1,15 +1,13 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {View, ViewProps} from 'react-native';
 import {StyleSheet} from 'react-native-unistyles';
 import Text, {TextProps} from './Text';
-import Button, {ButtonProps} from './Button';
 
 type CardProps = ViewProps & {
   rounded?: boolean;
 };
 type CardTitleProps = TextProps & {};
 type CardFooterProps = ViewProps & {row?: boolean};
-type CardButtonProps = ButtonProps;
 
 export default function Card({
   children,
@@ -49,12 +47,8 @@ export function CardSection({
   );
 }
 
-export function CardButton({...props}: CardButtonProps) {
-  return <Button {...props} style={styles.actionButton} />;
-}
-
 export function CardActions({children}: ViewProps) {
-  return <CardSection style={[styles.cardActionsContainer]}>
+  return <CardSection style={styles.cardActions}>
 		{children}
 	</CardSection>;
 }
@@ -71,18 +65,11 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   cardSection: (row?: boolean) => ({
-    //backgroundColor: theme.colors.teal['400'],
-    //gap: theme.m.sm,
     marginTop: theme.m.sm,
     flexDirection: row ? 'row' : 'column',
   }),
-  cardActionsContainer: {
+  cardActions: {
     marginBottom: -theme.m.md,
     marginHorizontal: -theme.m.md,
-  },
-  actionButton: {
-    flex: 1,
-    borderRadius: 0,
-    //marginHorizontal: -theme.m.md,
   },
 }));
