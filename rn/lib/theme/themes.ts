@@ -1,6 +1,6 @@
 import {colors} from './colors';
 
-const shared = {
+export const shared = {
   fs: {
     default: 16,
     xs: 12,

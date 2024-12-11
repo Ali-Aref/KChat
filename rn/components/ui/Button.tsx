@@ -25,6 +25,7 @@ export type ButtonProps = PressableProps &
       | '3xl'
       | '4xl'
       | '5xl';
+			style?: ViewStyle | ViewStyle[],
   };
 
 export default function Button({

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   UnistylesRuntime,
 } from 'react-native-unistyles';
-import {darkTheme, lightTheme} from './lib/theme/themes';
+import {darkTheme, lightTheme, shared} from './lib/theme/themes';
 import Text from './components/ui/Text';
 import Button from './components/ui/Button';
 import Icon from 'react-native-vector-icons/Feather';
@@ -141,44 +141,13 @@ export default function App(): React.JSX.Element {
 
 						</CardSection>
 						<CardActions>
-							<ButtonGroup
-								buttons={[
-									{
-										variant: 'error',
-										title: 'Reject',
-										icon: <Icon name="slash" />,
-									},
-									{
-										variant: 'success',
-										title: 'Approve',
-										icon: <Icon name="check" />,
-									},
-								]}
-							/>
+							<ButtonGroup>
+								<Button variant="secondary" title="Error" icon={<Icon name="user" />} />
+								<Button variant="info" title="Hello Info" icon={<Icon name="check" />} />
+								<Button variant="primary" title="Primary" icon={<Icon name="home" />} />
+							</ButtonGroup>
 						</CardActions>
 				</Card>
-				<View style={{ padding: 1, }}>
-							<ButtonGroup
-								buttons={[
-									{
-										variant: 'error',
-										title: 'Reject',
-										icon: <Icon name="slash" />,
-											style: {
-    borderStartEndRadius: 10,
-
-										}
-									},
-									{
-										variant: 'success',
-										title: 'Approve',
-										icon: <Icon name="check" />,
-									},
-								]}
-							/>
-
-				</View>
-
 			</View>
     </View>
   );
