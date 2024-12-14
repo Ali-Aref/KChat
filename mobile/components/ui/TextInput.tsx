@@ -132,6 +132,7 @@ const styles = StyleSheet.create(theme => ({
   input: {
     flex: 1,
     // remove
+		paddingVertical: 10,
     fontSize: 16,
     color: theme.colors.typography,
     //backgroundColor: 'dodgerblue',

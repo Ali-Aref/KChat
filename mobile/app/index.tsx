@@ -1,8 +1,10 @@
 import Button from "@/components/ui/Button";
-import { Link } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
+	return <Redirect href="/auth/login" />
+
   return (
     <View
       style={{
