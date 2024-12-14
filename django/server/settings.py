@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -197,13 +201,13 @@ ACCOUNT_ADAPTER = "lib.custom_auth_account_adapter.CustomAccountAdapter"
 # EMAIL_HOST_PASSWORD = "yqrjzxtnjwqmcnxx"
 # (on server)
 DEFAULT_FROM_EMAIL = (
-    "No Reply <ali@amucarcare.com>"  # requires for all auth mailing
+    os.getenv('DEFAULT_FROM_EMAIL')  # requires for all auth mailing
 )
-EMAIL_HOST = "smtp.hostinger.com"
-EMAIL_PORT = 465
-EMAIL_HOST_USER = "ali@amucarcare.com"
-EMAIL_HOST_PASSWORD = "SKm=3n@3N"
-EMAIL_USE_SSL = True
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
 
 # django channels
 CHANNEL_LAYERS = {

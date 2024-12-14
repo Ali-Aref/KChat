@@ -2,3 +2,4 @@ temp/redux/node_modules
 mobile/ios
 mobile/android
 mobile2
+django/.env
