@@ -43,7 +43,7 @@ export default function LoginScreen() {
         <Text color="info">Forgot password?</Text>
         <Button
           title="Login"
-					variant="success"
+					variant="primary"
 					icon={<UniFeather name="star" size={20} />}
         />
         <Text color="primary" style={styles.labelNewAccount}>
@@ -82,6 +82,6 @@ const styles = StyleSheet.create((theme, rt) => ({
     //fontWeight: '500',
   },
   link: {
-    textDecorationLine: "underline",
+    //textDecorationLine: "underline",
   },
 }));

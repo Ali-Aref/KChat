@@ -101,20 +101,20 @@ const styles = StyleSheet.create(theme => ({
           borderColor: theme.components.textInput.borderColor,
         },
         info: {
-          backgroundColor: theme.colors.blue['200'],
-          borderColor: theme.colors.blue['700'],
+          backgroundColor: theme.colors.blue200,
+          borderColor: theme.colors.blue700,
         },
         success: {
-          backgroundColor: theme.colors.green['200'],
-          borderColor: theme.colors.green['700'],
+          backgroundColor: theme.colors.green200,
+          borderColor: theme.colors.green700,
         },
         warning: {
-          backgroundColor: theme.colors.orange['200'],
-          borderColor: theme.colors.orange['700'],
+          backgroundColor: theme.colors.orange200,
+          borderColor: theme.colors.orange700,
         },
         error: {
-          backgroundColor: theme.colors.red['200'],
-          borderColor: theme.colors.red['700'],
+          backgroundColor: theme.colors.red200,
+          borderColor: theme.colors.red700,
         },
       },
     },
@@ -140,10 +140,10 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       variant: {
         default: {color: theme.colors.typography},
-        info: {color: theme.colors.blue['700']},
-        success: {color: theme.colors.green['700']},
-        warning: {color: theme.colors.orange['700']},
-        error: {color: theme.colors.red['700']},
+        info: {color: theme.colors.blue700},
+        success: {color: theme.colors.green700},
+        warning: {color: theme.colors.orange700},
+        error: {color: theme.colors.red700},
       },
       size: {
         default: {fontSize: theme.fs.default},

@@ -53,32 +53,32 @@ export const shared = {
 
 export const lightTheme = {
   colors: {
-    typography: colors.slate['900'],
-    background: colors.slate['200'],
-		cardBackground: colors.slate['100'],
+    typography: colors.slate900,
+    background: colors.slate200,
+		cardBackground: colors.slate100,
     ...colors,
   },
   ...shared,
   components: {
     textInput: {
-      bg: colors.slate['300'],
-      borderColor: colors.slate['400'],
+      bg: colors.slate300,
+      borderColor: colors.slate400,
     },
   },
 } as const;
 
 export const darkTheme = {
   colors: {
-    typography: colors.slate['200'],
-    background: colors.slate['800'],
-		cardBackground: colors.slate['700'],
+    typography: colors.slate200,
+    background: colors.slate800,
+		cardBackground: colors.slate700,
     ...colors,
   },
   ...shared,
   components: {
     textInput: {
-      bg: colors.slate['500'],
-      borderColor: colors.slate['400'],
+      bg: colors.slate500,
+      borderColor: colors.slate400,
     },
   },
 } as const;

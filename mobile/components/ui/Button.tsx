@@ -82,36 +82,36 @@ const styles = StyleSheet.create((theme, rt) => ({
     variants: {
       variant: {
         primary: {
-          backgroundColor: theme.colors.primary["500"],
-          borderColor: theme.colors.primary["300"],
+          backgroundColor: theme.colors.primary500,
+          borderColor: theme.colors.primary300,
         },
         secondary: {
-          backgroundColor: theme.colors.secondary["500"],
-          borderColor: theme.colors.secondary["300"],
+          backgroundColor: theme.colors.secondary500,
+          borderColor: theme.colors.secondary300,
         },
         info: {
-          backgroundColor: theme.colors.blue["400"],
-          borderColor: theme.colors.blue["300"],
+          backgroundColor: theme.colors.blue400,
+          borderColor: theme.colors.blue300,
         },
         success: {
-          backgroundColor: theme.colors.emerald["400"],
-          borderColor: theme.colors.emerald["300"],
+          backgroundColor: theme.colors.emerald400,
+          borderColor: theme.colors.emerald300,
         },
         warning: {
-          backgroundColor: theme.colors.orange["400"],
-          borderColor: theme.colors.orange["300"],
+          backgroundColor: theme.colors.orange400,
+          borderColor: theme.colors.orange300,
         },
         error: {
-          backgroundColor: theme.colors.red["400"],
-          borderColor: theme.colors.red["300"],
+          backgroundColor: theme.colors.red400,
+          borderColor: theme.colors.red300,
         },
 				// ⚠️  UniStyle NEED FIX
 				// if default variant is defined, other variants are not working
 				// you can check this in loginButton at login.tsx line 44 change the button variant
-        default: {
-          backgroundColor: theme.colors.blue["400"],
-          borderColor: theme.colors.blue["300"],
-        },
+        //default: {
+        //  backgroundColor: theme.colors.blue["400"],
+        //  borderColor: theme.colors.blue["300"],
+        //},
       },
       disabled: {
         true: {
