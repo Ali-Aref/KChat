@@ -69,14 +69,14 @@ export default function TextInput({
     <View style={styles.container}>
       {label && <Text size={size}>{label}</Text>}
       <View style={styles.inputContainer(focused)}>
-        {leftIcon && React.cloneElement(leftIcon, styles.icon)}
+        {leftIcon && leftIcon}
         <RNTextInput
           style={[styles.input, style]}
           onFocus={handleFocus}
           onBlur={handleBlur}
           {...props}
         />
-        {rightIcon && React.cloneElement(rightIcon, styles.icon)}
+        {rightIcon && rightIcon}
       </View>
       {errorMessage && (
         <Text color="error" size={size}>
@@ -160,17 +160,14 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   icon: {
-		// remove
-		color: theme.colors.typography,
-    variants: {
-      variant: {
-        default: {color: theme.colors.typography},
-        info: {color: theme.colors.blue['700']},
-        success: {color: theme.colors.green['700']},
-        warning: {color: theme.colors.orange['700']},
-        error: {color: theme.colors.red['700']},
-      },
-    },
+    //variants: {
+    //  variant: {
+    //    info: {color: theme.colors.blue['700']},
+    //    success: {color: theme.colors.green['700']},
+    //    warning: {color: theme.colors.orange['700']},
+    //    error: {color: theme.colors.red['700']},
+    //  },
+    //},
   },
 }));
 

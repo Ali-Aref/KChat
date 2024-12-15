@@ -1,22 +1,11 @@
 import { Stack } from "expo-router";
-import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
+import { UniStack } from "@/theme/navigation";
+
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false,
-        contentStyle: styles.contentStyle,
-      }}
-    >
+    <UniStack>
       <Stack.Screen name="showcase" />
-    </Stack>
+    </UniStack>
   );
 }
-
-const styles = StyleSheet.create((theme, rt) => ({
-  contentStyle: {
-		paddingTop: rt.insets.top,
-    backgroundColor: theme.colors.background,
-  },
-}));

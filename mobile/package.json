@@ -1,6 +1,6 @@
 {
   "name": "mobile",
-  "main": "lib/theme/index.js",
+  "main": "theme/index.js",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
