@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Image, View } from "react-native";
+import { Image } from "react-native";
 import Text from "../../components/ui/Text";
 import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
 import TextInput from "../../components/ui/TextInput";
 import Button from "@/components/ui/Button";
-import { UniFeather } from "@/theme/Icons";
+import View from "@/components/ui/View";
+import { UniFeather } from "@/components/ui/Icons";
 
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -24,7 +25,7 @@ export default function LoginScreen() {
         <TextInput
           label="Username"
           autoCapitalize="none"
-          leftIcon={<UniFeather name="mail" size={25} />}
+          leftIcon={<UniFeather name="user" size={25} />}
         />
         <TextInput
           label="Password"

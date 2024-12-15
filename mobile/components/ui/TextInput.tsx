@@ -23,8 +23,8 @@ type TextInputProps = RNTextInputProps &
       | '4xl'
       | '5xl';
     label?: string;
-    leftIcon?: React.ReactElement;
-    rightIcon?: React.ReactElement;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
     errorMessage?: string;
     description?: string;
   };
