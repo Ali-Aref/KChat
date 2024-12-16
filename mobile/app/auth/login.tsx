@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Image, ScrollView } from "react-native";
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from "react-native";
 import Text from "../../components/ui/Text";
 import {
   StyleSheet,
@@ -11,81 +16,88 @@ import Button from "@/components/ui/Button";
 import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 
-const UniScrollView = withUnistyles(ScrollView, () => ({
-}));
-
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
-    <View style={styles.canvas}>
-      <UniScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.conetnetContainerStyle}
+    <View style={{ flex: 1 }}>
+		<KeyboardAvoidingView
+		behavior="height"
+		style={{
+			backgroundColor: "green",
+			paddingHorizontal: '10%',
+		}}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: "center",
+          justifyContent: "center",
+					backgroundColor: "gray"
+        }}
       >
-        <Image
-          style={styles.logo}
-          resizeMode="contain"
-          source={require("../../assets/images/logo/logo-o.png")}
-        />
-        <Text color="primary" weight="bold" size="xl">
-          Weclome to KChat
-        </Text>
-        <Text color="warning">ime: {UnistylesRuntime.insets.ime}</Text>
-        <View style={styles.loginForm}>
-          <TextInput
-            label="Username"
-            autoCapitalize="none"
-            leftIcon={<UniFeather name="mail" size={25} />}
+          <Image
+            style={styles.logo}
+            resizeMode="contain"
+            source={require("../../assets/images/logo/logo-o.png")}
           />
-          <TextInput
-            label="Username"
-            autoCapitalize="none"
-            leftIcon={<UniFeather name="user" size={25} />}
-          />
-          <TextInput
-            label="Password"
-            autoCapitalize="none"
-            secureTextEntry={!showPassword}
-            leftIcon={<UniFeather name="lock" size={25} />}
-            rightIcon={
-              <UniFeather
-                size={25}
-                name={showPassword ? "eye-off" : "eye"}
-                onPress={() => setShowPassword(!showPassword)}
-              />
-            }
-          />
-          <Text color="info">Forgot password?</Text>
-          <Button
-            title="Login"
-            variant="primary"
-            icon={<UniFeather name="star" size={20} />}
-          />
-          <Text color="primary" style={styles.labelNewAccount}>
-            Don't have account?{" "}
-            <Text color="primary" weight="semibold" style={styles.link}>
-              Create one
-            </Text>
+          <Text color="primary" weight="bold" size="xl">
+            Weclome to KChat
           </Text>
-        </View>
-      </UniScrollView>
+          <Text color="warning">ime: {UnistylesRuntime.insets.ime}</Text>
+          <View style={styles.loginForm}>
+            <TextInput
+              label="Username"
+              autoCapitalize="none"
+              leftIcon={<UniFeather name="mail" size={25} />}
+            />
+            <TextInput
+              label="Username"
+              autoCapitalize="none"
+              leftIcon={<UniFeather name="mail" size={25} />}
+            />
+            <TextInput
+              label="Username"
+              autoCapitalize="none"
+              leftIcon={<UniFeather name="mail" size={25} />}
+            />
+            <TextInput
+              label="Username"
+              autoCapitalize="none"
+              leftIcon={<UniFeather name="user" size={25} />}
+            />
+            <TextInput
+              label="Password"
+              autoCapitalize="none"
+              secureTextEntry={!showPassword}
+              leftIcon={<UniFeather name="lock" size={25} />}
+              rightIcon={
+                <UniFeather
+                  size={25}
+                  name={showPassword ? "eye-off" : "eye"}
+                  onPress={() => setShowPassword(!showPassword)}
+                />
+              }
+            />
+            <Text color="info">Forgot password?</Text>
+            <Button
+              title="Login"
+              variant="primary"
+              icon={<UniFeather name="star" size={20} />}
+            />
+            <Text color="primary" style={styles.labelNewAccount}>
+              Don't have account?{" "}
+              <Text color="primary" weight="semibold" style={styles.link}>
+                Create one
+              </Text>
+            </Text>
+          </View>
+      </ScrollView>
+		</KeyboardAvoidingView>
     </View>
   );
 }
 
 const styles = StyleSheet.create((theme, rt) => ({
-  canvas: {
-    flex: 1,
-    paddingHorizontal: "10%",
-  },
-  conetnetContainerStyle: {
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:
-      rt.insets.ime > 0 ? theme.colors.blue900 : theme.colors.red900,
-  },
   logo: {
     width: 150,
     height: 150,
