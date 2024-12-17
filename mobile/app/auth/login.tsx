@@ -78,7 +78,7 @@ export default function LoginScreen() {
             <Text color="info">Forgot password?</Text>
             <Button
               title="Login"
-              variant="success"
+              variant="warning"
               icon={<UniFeather name="star" size={20} />}
             />
             <Text color="primary" style={styles.labelNewAccount}>
