@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { StyleSheet, UnistylesVariants } from "react-native-unistyles";
 import Text from "./Text";
+import { colors } from "@/theme/colors";
+import LinerLoading from "./LinerLoading";
 
 export type ButtonProps = PressableProps &
   UnistylesVariants<typeof styles> & {
@@ -59,12 +61,12 @@ export default function Button({
       ]}
       {...props}
     >
-      {loading ? <ActivityIndicator size="small" /> : icon ? icon : null}
-      {title && (
-        <Text>
-          {title} - variant: {String(variant)}
-        </Text>
-      )}
+      {loading ? (
+        <ActivityIndicator size={20} color={"white"} />
+      ) : icon ? (
+        React.cloneElement(icon, styles.title)
+      ) : null}
+      {title && <Text style={styles.title}>{title}</Text>}
     </Pressable>
   );
 }
@@ -105,10 +107,10 @@ const styles = StyleSheet.create((theme, rt) => ({
           backgroundColor: theme.colors.red400,
           borderColor: theme.colors.red300,
         },
-        default: {
-          backgroundColor: theme.colors.blue400,
-          borderColor: theme.colors.blue300,
-        },
+        //default: {
+        //  backgroundColor: theme.colors.blue400,
+        //  borderColor: theme.colors.blue300,
+        //},
       },
       disabled: {
         true: {
@@ -117,4 +119,18 @@ const styles = StyleSheet.create((theme, rt) => ({
       },
     },
   }),
+  title: {
+    color: theme.colors.primary100,
+    variants: {
+      variant: {
+        primary: { color: theme.colors.red400 },
+        secondary: { color: theme.colors.primary50 },
+        info: { color: theme.colors.primary50 },
+        warning: { color: theme.colors.primary50 },
+        success: { color: theme.colors.primary50 },
+        error: { color: theme.colors.primary50 },
+      },
+      disabled: { true: {} },
+    },
+  },
 }));
