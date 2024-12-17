@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 import { Link } from "expo-router";
+import i18n from "@/i18n";
 
 export default function RegisterScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export default function RegisterScreen() {
   return (
     <>
       <Text color="primary" weight="bold" size="xl">
-        Register Account
+				{i18n.t("screen.auth.registerAccount")}
       </Text>
       <View style={styles.loginForm}>
         <TextInput
@@ -59,10 +60,10 @@ export default function RegisterScreen() {
           style={styles.loginButton}
         />
         <Text>
-          Already have account?{" "}
+					{i18n.t("screen.auth.alreadyHaveAccount")}{" "}
           <Link replace href={"/auth/login"}>
             <Text color="secondary" weight="semibold">
-              Login
+							{i18n.t("screen.auth.login")}
             </Text>
           </Link>
         </Text>

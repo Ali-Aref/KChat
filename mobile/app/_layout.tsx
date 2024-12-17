@@ -1,7 +1,9 @@
 import { darkTheme, lightTheme } from "@/theme/themes";
 import { Stack } from "expo-router";
-import { StatusBar, useColorScheme } from "react-native";
+import { I18nManager, StatusBar, useColorScheme } from "react-native";
 import * as NavigationBar from "expo-navigation-bar"
+import { useEffect } from "react";
+import i18n, { RtlLanguages } from "@/i18n";
 
 export default function RootLayout() {
 	const colorScheme = useColorScheme()
@@ -15,6 +17,17 @@ export default function RootLayout() {
 		StatusBar.setBackgroundColor(lightTheme.colors.background)
 		NavigationBar.setBackgroundColorAsync(lightTheme.colors.background)
 	}
+
+	const language = "en"
+	const isRTL = RtlLanguages.includes(language)
+	i18n.locale = language
+	I18nManager.isRTL = isRTL
+	I18nManager.allowRTL(isRTL);
+	I18nManager.forceRTL(isRTL);
+
+	useEffect(()=> {
+		// handle language changes
+	}, [])
 
   return (
     <Stack screenOptions={{

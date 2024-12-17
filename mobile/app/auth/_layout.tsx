@@ -1,3 +1,7 @@
+import Button from "@/components/ui/Button";
+import Text from "@/components/ui/Text";
+import View from "@/components/ui/View";
+import i18n, { changeLanguage } from "@/i18n";
 import { Slot } from "expo-router";
 import React from "react";
 import { Image, KeyboardAvoidingView, ScrollView } from "react-native";
@@ -17,6 +21,14 @@ export default function AuthLayout() {
         />
         <Slot />
       </ScrollView>
+      <View style={{
+				paddingHorizontal: "10%",
+				flexDirection: "row",
+			}}>
+				<Text></Text>
+        <Button variant="info" title="English" onPress={()=>changeLanguage("en")} />
+        <Button variant="secondary" title="Farsi" onPress={()=>changeLanguage("fa")} />
+      </View>
     </KeyboardAvoidingView>
   );
 }

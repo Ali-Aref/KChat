@@ -1,0 +1,17 @@
+{
+  "welcomeToKchat": "به KChat خوش آمدید",
+  "username": "نام کاربری",
+  "email": "ایمیل",
+  "password": "رمز عبور",
+  "confirmPassword": "رمز عبور را تایید کنید",
+  "screen": {
+    "auth": {
+      "login": "وارد شوید",
+      "register": "ثبت نام کنید",
+      "forgotPassword": "رمز عبور را فراموش کرده اید؟",
+      "don'tHaveAccount": "حساب کاربری ندارید؟",
+      "alreadyHaveAccount": "از قبل حساب دارید؟",
+      "": ""
+    }
+  }
+}

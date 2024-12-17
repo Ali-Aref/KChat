@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 import { Link } from "expo-router";
+import i18n from "@/i18n";
 
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -13,16 +14,16 @@ export default function LoginScreen() {
   return (
     <>
       <Text color="primary" weight="bold" size="xl">
-        Weclome to KChat
+				{i18n.t("welcomeToKchat")}
       </Text>
       <View style={styles.loginForm}>
         <TextInput
-          label="Username"
+          label={i18n.t("username")}
           autoCapitalize="none"
           leftIcon={<UniFeather name="mail" size={25} />}
         />
         <TextInput
-          label="Password"
+          label={i18n.t("password")}
           autoCapitalize="none"
           secureTextEntry={!showPassword}
           leftIcon={<UniFeather name="lock" size={25} />}
@@ -35,19 +36,19 @@ export default function LoginScreen() {
           }
         />
         <Text color="secondary" weight="semibold">
-          Forgot password?
+					{i18n.t("screen.auth.forgotPassword")}
         </Text>
         <Button
           loading={false}
-          title="Login"
+          title={i18n.t("screen.auth.login")}
           variant="primary"
           style={styles.loginButton}
         />
         <Text>
-          Don't have account?{" "}
+          {i18n.t("screen.auth.don'tHaveAccount")}{" "}
           <Link href={"/auth/register"}>
             <Text color="secondary" weight="semibold">
-              Register
+							{i18n.t("screen.auth.register")}
             </Text>
           </Link>
         </Text>
