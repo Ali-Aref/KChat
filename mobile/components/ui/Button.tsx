@@ -105,9 +105,6 @@ const styles = StyleSheet.create((theme, rt) => ({
           backgroundColor: theme.colors.red400,
           borderColor: theme.colors.red300,
         },
-				// ⚠️  UniStyle NEED FIX
-				// if default variant is defined, other variants are not working
-				// you can check this in loginButton at login.tsx line 44 change the button variant
         default: {
           backgroundColor: theme.colors.blue400,
           borderColor: theme.colors.blue300,
