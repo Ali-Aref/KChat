@@ -7,17 +7,22 @@ import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 import { Link } from "expo-router";
 
-export default function LoginScreen() {
+export default function RegisterScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <>
       <Text color="primary" weight="bold" size="xl">
-        Weclome to KChat
+        Register Account
       </Text>
       <View style={styles.loginForm}>
         <TextInput
           label="Username"
+          autoCapitalize="none"
+          leftIcon={<UniFeather name="mail" size={25} />}
+        />
+        <TextInput
+          label="Email"
           autoCapitalize="none"
           leftIcon={<UniFeather name="mail" size={25} />}
         />
@@ -34,20 +39,30 @@ export default function LoginScreen() {
             />
           }
         />
-        <Text color="secondary" weight="semibold">
-          Forgot password?
-        </Text>
+        <TextInput
+          label="Confirm Password"
+          autoCapitalize="none"
+          secureTextEntry={!showPassword}
+          leftIcon={<UniFeather name="lock" size={25} />}
+          rightIcon={
+            <UniFeather
+              size={25}
+              name={showPassword ? "eye-off" : "eye"}
+              onPress={() => setShowPassword(!showPassword)}
+            />
+          }
+        />
         <Button
           loading={false}
-          title="Login"
+          title="Register"
           variant="primary"
           style={styles.loginButton}
         />
         <Text>
-          Don't have account?{" "}
-          <Link href={"/auth/register"}>
+          Already have account?{" "}
+          <Link replace href={"/auth/login"}>
             <Text color="secondary" weight="semibold">
-              Register
+              Login
             </Text>
           </Link>
         </Text>
