@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import {
   Image,
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
 } from "react-native";
 import Text from "../../components/ui/Text";
 import {
   StyleSheet,
-  UnistylesRuntime,
-  withUnistyles,
 } from "react-native-unistyles";
 import TextInput from "../../components/ui/TextInput";
 import Button from "@/components/ui/Button";
@@ -20,17 +17,10 @@ export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
-    <View>
-		<KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+		<KeyboardAvoidingView behavior="padding" style={styles.kav}>
       <ScrollView
 				showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          flexGrow: 1,
-          alignItems: "center",
-          justifyContent: "center",
-					paddingHorizontal: '10%',
-					paddingVertical: 50,
-        }}
+        contentContainerStyle={styles.contentContainer}
       >
           <Image
             style={styles.logo}
@@ -40,27 +30,11 @@ export default function LoginScreen() {
           <Text color="primary" weight="bold" size="xl">
             Weclome to KChat
           </Text>
-          <Text color="warning">ime: {UnistylesRuntime.insets.ime}</Text>
           <View style={styles.loginForm}>
             <TextInput
               label="Username"
               autoCapitalize="none"
               leftIcon={<UniFeather name="mail" size={25} />}
-            />
-            <TextInput
-              label="Username"
-              autoCapitalize="none"
-              leftIcon={<UniFeather name="mail" size={25} />}
-            />
-            <TextInput
-              label="Username"
-              autoCapitalize="none"
-              leftIcon={<UniFeather name="mail" size={25} />}
-            />
-            <TextInput
-              label="Username"
-              autoCapitalize="none"
-              leftIcon={<UniFeather name="user" size={25} />}
             />
             <TextInput
               label="Password"
@@ -75,44 +49,46 @@ export default function LoginScreen() {
                 />
               }
             />
-            <Text color="info">Forgot password?</Text>
+            <Text color="secondary" weight="semibold">Forgot password?</Text>
             <Button
+							loading={false}
               title="Login"
-              variant="warning"
-              icon={<UniFeather name="star" size={20} />}
+              variant="primary"
+							style={styles.loginButton}
             />
-            <Text color="primary" style={styles.labelNewAccount}>
+            <Text>
               Don't have account?{" "}
-              <Text color="primary" weight="semibold" style={styles.link}>
+              <Text color="secondary" weight="semibold">
                 Create one
               </Text>
             </Text>
           </View>
       </ScrollView>
 		</KeyboardAvoidingView>
-    </View>
   );
 }
 
 const styles = StyleSheet.create((theme, rt) => ({
+	kav: {
+		flex: 1,
+		backgroundColor: theme.colors.background,
+	},
+	contentContainer: {
+		flexGrow: 1,
+		alignItems: "center",
+		justifyContent: "center",
+		paddingHorizontal: '10%',
+		paddingVertical: 50,
+	},
   logo: {
-    width: 150,
-    height: 150,
+    width: 160,
+    height: 160,
   },
   loginForm: {
-    //width: '100%',
     gap: 5,
     marginTop: 20,
   },
   loginButton: {
     marginTop: 10,
-  },
-  labelNewAccount: {
-    //marginTop: 10,
-    //textAlign: 'center',
-    //fontWeight: '500',
-  },
-  link: {
-    //textDecorationLine: "underline",
   },
 }));
