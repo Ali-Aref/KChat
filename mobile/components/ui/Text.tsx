@@ -35,6 +35,7 @@ const styles = StyleSheet.create(theme => ({
       color: {
         default: {color: theme.colors.typography},
 				primary: {color: theme.colors.primary500},
+				secondary: {color: theme.colors.secondary500},
         info: {color: theme.colors.blue500},
         warning: {color: theme.colors.orange500},
         success: {color: theme.colors.green500},
