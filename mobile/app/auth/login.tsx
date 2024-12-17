@@ -20,19 +20,16 @@ export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
-    <View style={{ flex: 1 }}>
-		<KeyboardAvoidingView
-		behavior="height"
-		style={{
-			backgroundColor: "green",
-			paddingHorizontal: '10%',
-		}}>
+    <View>
+		<KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       <ScrollView
+				showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           flexGrow: 1,
           alignItems: "center",
           justifyContent: "center",
-					backgroundColor: "gray"
+					paddingHorizontal: '10%',
+					paddingVertical: 50,
         }}
       >
           <Image
@@ -81,7 +78,7 @@ export default function LoginScreen() {
             <Text color="info">Forgot password?</Text>
             <Button
               title="Login"
-              variant="primary"
+              variant="success"
               icon={<UniFeather name="star" size={20} />}
             />
             <Text color="primary" style={styles.labelNewAccount}>
