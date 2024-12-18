@@ -1,24 +1,12 @@
-import React from 'react';
-import {View, ViewProps} from 'react-native';
-import {StyleSheet} from 'react-native-unistyles';
-import Text, {TextProps} from './Text';
+import React from "react";
+import { View, ViewProps } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import Text, { TextProps } from "./Text";
 
-type CardProps = ViewProps & {
-  rounded?: boolean;
-};
-type CardTitleProps = TextProps & {};
-type CardFooterProps = ViewProps & {row?: boolean};
+type CardProps = ViewProps & {};
+type CardTitleProops = TextProps & {};
 
-export default function Card({
-  children,
-  rounded,
-  style = {},
-  ...props
-}: CardProps) {
-  styles.useVariants({
-    rounded,
-  });
-
+export default function Card({ children, style, ...props }: CardProps) {
   return (
     <View style={[styles.card, style]} {...props}>
       {children}
@@ -26,50 +14,41 @@ export default function Card({
   );
 }
 
-export function CardTitle({children, style, ...props}: CardTitleProps) {
+export function CardTitle({ children, style, ...props }: CardTitleProops) {
   return (
-    <Text style={style} weight="bold" {...props}>
+    <Text weight="bold" style={style} {...props}>
       {children}
     </Text>
   );
 }
 
-export function CardSection({
-  children,
-  style,
-  row,
-  ...props
-}: CardFooterProps) {
+export function CardSection({ children, style, ...props }: CardProps) {
   return (
-    <View style={[styles.cardSection(row), style]} {...props}>
+    <View style={[styles.cardSection, style]} {...props}>
       {children}
     </View>
   );
 }
 
-export function CardActions({children}: ViewProps) {
-  return <CardSection style={styles.cardActions}>
-		{children}
-	</CardSection>;
+export function CardActions({ children, style, ...props }: CardProps) {
+  return (
+    <CardSection style={[styles.cardActions, style]} {...props}>
+      {children}
+    </CardSection>
+  );
 }
 
-const styles = StyleSheet.create(theme => ({
+const styles = StyleSheet.create((theme) => ({
   card: {
     padding: theme.p.md,
+    borderRadius: theme.radius.md,
     backgroundColor: theme.colors.cardBackground,
-    overflow: 'hidden',
-    variants: {
-      rounded: {
-        true: {borderRadius: theme.radius.md},
-      },
-    },
   },
-  cardSection: (row?: boolean) => ({
-    marginTop: theme.m.sm,
-    flexDirection: row ? 'row' : 'column',
-  }),
-  cardActions: {
+	cardSection: {
+		marginTop: theme.m.md,
+	},
+	cardActions: {
     marginBottom: -theme.m.md,
     marginHorizontal: -theme.m.md,
-  },
+	},
 }));
