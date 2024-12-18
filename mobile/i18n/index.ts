@@ -13,10 +13,9 @@ const i18n = new I18n({
 // Set the locale once at the beginning of your app.
 //i18n.locale = getLocales()[0].languageCode;
 
+i18n.locale = getLocales()[0].languageCode ?? "en";
 i18n.enableFallback = true
 I18nManager.allowRTL(true);
-i18n.locale = "fa"
-//console.log(i18n.t('welcome'));
 
 export const RtlLanguages = [ "fa", "ps" ]
 

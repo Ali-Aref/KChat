@@ -7,9 +7,13 @@ import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 import { Link } from "expo-router";
 import i18n from "@/i18n";
+import { useAppSelector } from "@/store/hooks";
 
 export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+	const language = useAppSelector(state=> state.app.language)
+
+	console.log("store language code: ", language)
 
   return (
     <>
