@@ -13,7 +13,7 @@ export default function LoginScreen() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 	const language = useAppSelector(state=> state.app.language)
 
-	console.log("store language code: ", language)
+	console.log("store language code ", language)
 
   return (
     <>
