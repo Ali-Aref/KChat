@@ -4,7 +4,10 @@
 	"email": "Email",
 	"password": "Password",
 	"confirmPassword": "Confirm Password",
+	"chooseYourLanguage": "Choose your language",
 	"screen": {
+		"boarding": {
+		},
 		"auth": {
 			"login": "Login",
 			"register": "Register",

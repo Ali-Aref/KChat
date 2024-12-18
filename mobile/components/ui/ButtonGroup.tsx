@@ -19,10 +19,11 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
           if (React.isValidElement(child)) {
             return React.cloneElement(child as React.ReactElement<ButtonProps>, {
 							key: i,
-              style: [styles.button, child.props.style],
+              //style: [styles.button, child.props.style],
+              style: [styles.button]
             });
           }
-          return child;
+          //return child;
         })}
       </View>
     </View>
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    borderRadius: 0,
-    //paddingHorizontal: 20,
+		borderRadius: 0,
+		//backgroundColor: 'dodgerblue',
     //paddingVertical: 10,
   },
 });
