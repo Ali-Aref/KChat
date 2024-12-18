@@ -1,0 +1,18 @@
+{
+  "welcomeToKchat": "Benvenuto in KChat",
+  "username": "Nome utente",
+  "email": "E-mail",
+  "password": "Password",
+  "confirmPassword": "Conferma password",
+  "screen": {
+    "auth": {
+      "login": "Login",
+      "register": "Registro",
+      "registerAccount": "Registra l'account",
+      "forgotPassword": "Ha dimenticato la password?",
+      "don'tHaveAccount": "Non hai un account?",
+      "alreadyHaveAccount": "Hai già un account?",
+      "": ""
+    }
+  }
+}

@@ -6,29 +6,30 @@ import Button from "@/components/ui/Button";
 import View from "@/components/ui/View";
 import { UniFeather } from "@/components/ui/Icons";
 import { Link } from "expo-router";
-import i18n from "@/i18n";
+import { useTranslation } from "react-i18next";
 
 export default function RegisterScreen() {
+	const {t} = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <>
       <Text color="primary" weight="bold" size="xl">
-				{i18n.t("screen.auth.registerAccount")}
+				{t("screen.auth.registerAccount")}
       </Text>
       <View style={styles.loginForm}>
         <TextInput
-          label="Username"
+          label={t("username")}
           autoCapitalize="none"
           leftIcon={<UniFeather name="mail" size={25} />}
         />
         <TextInput
-          label="Email"
+          label={t("email")}
           autoCapitalize="none"
           leftIcon={<UniFeather name="mail" size={25} />}
         />
         <TextInput
-          label="Password"
+          label={t("password")}
           autoCapitalize="none"
           secureTextEntry={!showPassword}
           leftIcon={<UniFeather name="lock" size={25} />}
@@ -41,7 +42,7 @@ export default function RegisterScreen() {
           }
         />
         <TextInput
-          label="Confirm Password"
+          label={t("confirmPassword")}
           autoCapitalize="none"
           secureTextEntry={!showPassword}
           leftIcon={<UniFeather name="lock" size={25} />}
@@ -55,15 +56,15 @@ export default function RegisterScreen() {
         />
         <Button
           loading={false}
-          title="Register"
+          title={t("screen.auth.register")}
           variant="primary"
           style={styles.loginButton}
         />
         <Text>
-					{i18n.t("screen.auth.alreadyHaveAccount")}{" "}
+					{t("screen.auth.alreadyHaveAccount")}{" "}
           <Link replace href={"/auth/login"}>
             <Text color="secondary" weight="semibold">
-							{i18n.t("screen.auth.login")}
+							{t("screen.auth.login")}
             </Text>
           </Link>
         </Text>
