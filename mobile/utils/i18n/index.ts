@@ -5,6 +5,8 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: { translation: require("@/utils/i18n/en.json") },
   fa: { translation: require("@/utils/i18n/fa.json") },
+  ps: { translation: require("@/utils/i18n/ps.json") },
+  ar: { translation: require("@/utils/i18n/ar.json") },
   it: { translation: require("@/utils/i18n/it.json") },
 };
 

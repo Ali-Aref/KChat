@@ -5,9 +5,15 @@
   "password": "رمز عبور",
   "confirmPassword": "رمز عبور را تایید کنید",
   "screen": {
+    "boarding": {
+      "chooseYourLanguage": "زبان خود را انتخاب کنید",
+      "searchForYourLanguage": "زبان خود را جستجو کنید",
+      "": ""
+    },
     "auth": {
       "login": "وارد شوید",
       "register": "ثبت نام کنید",
+      "registerAccount": "ثبت حساب",
       "forgotPassword": "رمز عبور را فراموش کرده اید؟",
       "don'tHaveAccount": "حساب کاربری ندارید؟",
       "alreadyHaveAccount": "از قبل حساب دارید؟",

@@ -1,0 +1,23 @@
+{
+  "welcomeToKchat": "KChat ته ښه راغلاست",
+  "username": "کارن نوم",
+  "email": "ایمیل",
+  "password": "رمز",
+  "confirmPassword": "پاسورډ تایید کړئ",
+  "screen": {
+    "boarding": {
+      "chooseYourLanguage": "خپله ژبه غوره کړئ",
+      "searchForYourLanguage": "د خپلې ژبې لټون وکړئ",
+      "": ""
+    },
+    "auth": {
+      "login": "ننوتل",
+      "register": "راجستر",
+      "registerAccount": "حساب راجستر کړئ",
+      "forgotPassword": "پټنوم هیر شوی؟",
+      "don'tHaveAccount": "حساب نه لرئ؟",
+      "alreadyHaveAccount": "ایا دمخه حساب لرئ؟",
+      "": ""
+    }
+  }
+}

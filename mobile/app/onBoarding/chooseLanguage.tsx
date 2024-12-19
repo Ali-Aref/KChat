@@ -1,58 +1,76 @@
-import Button from "@/components/ui/Button";
-import ButtonGroup from "@/components/ui/ButtonGroup";
-import Card, {
-  CardActions,
-  CardSection,
-  CardTitle,
-} from "@/components/ui/Card";
+import Card from "@/components/ui/Card";
 import { UniFeather } from "@/components/ui/Icons";
 import Text from "@/components/ui/Text";
 import TextInput from "@/components/ui/TextInput";
 import View from "@/components/ui/View";
+import { useAppDispatch } from "@/store/hooks";
+import { changeLanguageThunk } from "@/store/slices/app/appThunk";
 import { SupportedLanguages } from "@/utils/i18n";
-import React, { useState } from "react";
+import React, { ComponentProps, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FlatList } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
+import CountryFlag from "react-native-country-flag";
 
 type language_item = {
   code: SupportedLanguages;
   label: string;
+	flag: string;
 };
-const languages_list = [
-  { code: "en", label: "English" },
-  { code: "it", label: "Italian" },
-  { code: "fa", label: "Dari" },
+const languages_list: language_item[] = [
+  { code: "fa", flag: "af", label: "دری" },
+  { code: "ps", flag: "af", label: "پشتو" },
+  { code: "ar", flag: "ae", label: "عربی" },
+  { code: "fa", flag: "fr", label: "French" },
+  { code: "it", flag: "it", label: "Italian" },
+  { code: "en", flag: "us", label: "English" },
 ];
 
 export default function ChooseLanguageScreen() {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const [search, setsearch] = useState<string>("");
+
+  const handleChangeLanguage = (language: SupportedLanguages) => {
+    dispatch(changeLanguageThunk(language));
+  };
 
   return (
     <View style={styles.canvas}>
-      <TextInput
-        placeholder="Search for your language"
-        autoCapitalize="words"
-        leftIcon={<UniFeather name="search" size={20} />}
-        onChangeText={(text) => setsearch(text)}
-      />
-      <Text weight="bold">{t("chooseYourLanguage")}</Text>
+      <View style={styles.headerContainer}>
+        <Text weight="bold" size="xl" style={{ textAlign: "center" }}>
+          {t("screen.boarding.chooseYourLanguage")}
+        </Text>
+        <TextInput
+          placeholder={t("search")}
+          autoCapitalize="words"
+          leftIcon={<UniFeather name="search" size={20} />}
+          onChangeText={(text) => setsearch(text)}
+        />
+      </View>
+
       <FlatList
         data={languages_list.filter((i) =>
           i.label.toLowerCase().includes(search.toLowerCase()),
         )}
         numColumns={3}
-        keyExtractor={(item) => item.code}
-        style={{ flex: 1 }}
+        keyExtractor={(item, i) => item.code + i}
+        //style={{ flex: 1 }}
+        columnWrapperStyle={{
+          gap: 10,
+        }}
         contentContainerStyle={{
+          gap: 10,
           marginTop: 10,
-          //backgroundColor: 'dodgerblue'
         }}
         renderItem={({ item }) => (
-          <Card style={styles.languageCard}>
+          <Pressable
+            onPress={() => handleChangeLanguage(item.code)}
+            style={styles.languageCard}
+          >
+						<CountryFlag isoCode={item.flag} size={25} />
             <Text>{item.label}</Text>
-          </Card>
+          </Pressable>
         )}
       />
     </View>
@@ -63,15 +81,20 @@ const styles = StyleSheet.create((theme, rt) => ({
   canvas: {
     flex: 1,
     paddingTop: rt.insets.top,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingHorizontal: "10%",
   },
-  chooseLanguageContainer: {
-    padding: theme.p.md,
-    backgroundColor: theme.colors.cardBackground,
+  headerContainer: {
+    gap: theme.m.sm,
   },
   languageCard: {
-		alignItems: "center",
-		justifyContent: "center",
+    flex: 1,
+		gap: 3,
+    //marginTop: theme.m.md,
+    //margin: 3.5,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.colors.cardBackground,
+    padding: theme.p.md,
+    borderRadius: theme.radius.md,
   },
 }));

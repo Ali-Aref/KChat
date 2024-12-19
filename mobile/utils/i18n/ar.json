@@ -1,0 +1,23 @@
+{
+  "welcomeToKchat": "مرحبا بكم في كشات",
+  "username": "اسم المستخدم",
+  "email": "بريد إلكتروني",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "screen": {
+    "boarding": {
+      "chooseYourLanguage": "اختر لغتك",
+      "searchForYourLanguage": "ابحث عن لغتك",
+      "": ""
+    },
+    "auth": {
+      "login": "تسجيل الدخول",
+      "register": "يسجل",
+      "registerAccount": "تسجيل الحساب",
+      "forgotPassword": "هل نسيت كلمة السر؟",
+      "don'tHaveAccount": "ليس لديك حساب؟",
+      "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+      "": ""
+    }
+  }
+}

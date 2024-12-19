@@ -4,9 +4,13 @@
 	"email": "Email",
 	"password": "Password",
 	"confirmPassword": "Confirm Password",
-	"chooseYourLanguage": "Choose your language",
+	"search": "Search...",
 	"screen": {
 		"boarding": {
+			"chooseYourLanguage": "Choose your language",
+			"searchForYourLanguage": "Search for your language",
+			"": ""
+
 		},
 		"auth": {
 			"login": "Login",

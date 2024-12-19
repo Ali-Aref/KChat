@@ -5,6 +5,11 @@
   "password": "Password",
   "confirmPassword": "Conferma password",
   "screen": {
+    "boarding": {
+      "chooseYourLanguage": "Scegli la tua lingua",
+      "searchForYourLanguage": "Cerca la tua lingua",
+      "": ""
+    },
     "auth": {
       "login": "Login",
       "register": "Registro",
