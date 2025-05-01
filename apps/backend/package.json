@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --exit-child --transpile-only --watch src src/index.ts",
+    "dev": "ts-node-dev --respawn --exit-child --transpile-only --watch src,../../packages/shared --require tsconfig-paths/register src/index.ts",
     "run": "ts-node-dev --exit-child src/index.ts"
   },
   "keywords": [],
@@ -12,5 +12,8 @@
   "description": "",
   "dependencies": {
     "fastify": "^5.3.2"
+  },
+  "devDependencies": {
+    "tsconfig-paths": "^4.2.0"
   }
 }
