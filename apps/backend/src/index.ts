@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import authRoutes from "./modules/auth.route";
 
 // logger shows logs of requests
 const server = fastify({ logger: true });
@@ -6,6 +7,9 @@ const server = fastify({ logger: true });
 server.get("/", (req, res) => {
   res.send("Hello Fastify Root!");
 });
+
+// register all routes
+server.register(authRoutes, { prefix: "/auth" });
 
 const start = async () => {
   try {
