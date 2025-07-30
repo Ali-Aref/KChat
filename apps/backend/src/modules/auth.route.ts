@@ -1,13 +1,17 @@
 import { FastifyInstance } from "fastify";
 import { registerUserController } from "./auth.controller";
-import { zodToJsonSchema } from "zod-to-json-schema";
 import { RegisterUserForm } from "@shared/schema/auth.schema";
+import { toJSONSchema } from "zod";
 
 const authRoutes = (server: FastifyInstance) => {
-  server.post("/register", {
-    schema: {
-      body: zodToJsonSchema(RegisterUserForm)
-    }
-  }, registerUserController);
+  server.post(
+    "/register",
+    {
+      schema: {
+        body: toJSONSchema(RegisterUserForm, { target: "draft-7" }),
+      },
+    },
+    registerUserController,
+  );
 };
 export default authRoutes;
