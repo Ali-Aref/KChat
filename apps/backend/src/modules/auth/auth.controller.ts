@@ -2,11 +2,10 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { IRegisterUserForm } from "@shared/schema/auth.schema"
 import { registerUserService } from "./auth.service";
 
-export const registerUserController = (
+export const registerUserController = async (
   req: FastifyRequest<{ Body: IRegisterUserForm }>,
   rep: FastifyReply,
 ) => {
-  console.log("now register a new user")
-  const user = registerUserService(req.body)
-  rep.code(201).send({ message: "Registered successfully" });
+  const user = await registerUserService(req.body)
+  rep.code(201).send(user);
 };

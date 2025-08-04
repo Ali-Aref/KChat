@@ -9,6 +9,9 @@ const authRoutes = (server: FastifyInstance) => {
     {
       schema: {
         body: toJSONSchema(RegisterUserForm, { target: "draft-7" }),
+        response: {
+          201: toJSONSchema(RegisterUserForm, { target: "draft-7" }),
+        }
       },
     },
     registerUserController,

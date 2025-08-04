@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import authRoutes from "./modules/auth.route";
+import authRoutes from "@src/modules/auth/auth.route";
 
 // logger shows logs of requests
 const server = fastify({ logger: true });
