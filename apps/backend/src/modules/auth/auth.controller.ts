@@ -9,3 +9,7 @@ export const registerUserController = async (
   const user = await registerUserService(req.body)
   rep.code(201).send(user);
 };
+
+export const loginController = async() => {
+
+}

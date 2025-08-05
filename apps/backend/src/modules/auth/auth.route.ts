@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
-import { registerUserController } from "./auth.controller";
-import { RegisterUserForm } from "@shared/schema/auth.schema";
-import { toJSONSchema } from "zod";
+import { loginController, registerUserController } from "./auth.controller";
+import { LoginUserForm, RegisterUserForm } from "@shared/schema/auth.schema";
+import z, { toJSONSchema } from "zod";
 
 const authRoutes = (server: FastifyInstance) => {
   server.post(
@@ -16,5 +16,19 @@ const authRoutes = (server: FastifyInstance) => {
     },
     registerUserController,
   );
+
+  server.post(
+    "/login",
+    {
+      schema: {
+        body: toJSONSchema(LoginUserForm, { target: "draft-7" }),
+        response: {
+          // API: fix the response schema
+          201: toJSONSchema(z.any(), { target: "draft-7" }),
+        }
+      }
+    }, 
+    loginController,
+  )
 };
 export default authRoutes;
